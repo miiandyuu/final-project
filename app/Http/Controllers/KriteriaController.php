@@ -32,15 +32,11 @@ class KriteriaController extends Controller
         $lastValueCode = DB::table('kriteria')->orderBy('code', 'desc')->first();
         $code = is_null($lastValueCode) ? 1 : $lastValueCode->code + 1;
         $bobot = (float)$request->bobot;
-        $test = Schema::getColumnListing('master');
-        foreach ($test as $key => $value) {
-            $value;
-        }
 
         $kriteria = Kriteria::create([
             'code' => $code,
             'name' => $request->name,
-            'kode_database' => $value,
+            'kode_database' => $request->kode_database,
             'description' => $request->description,
             'type' => $request->type,
             'bobot' => $bobot,

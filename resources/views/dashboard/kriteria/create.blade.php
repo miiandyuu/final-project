@@ -24,9 +24,9 @@
             <div class="card-body">
               <form class="form form-vertical" action="{{ route('kriteria.store') }}" method="POST">
                 @csrf
-
                 <div class="form-body">
                   <div class="row">
+                    
                     <div class="col-12">
                       <div class="form-group">
                         <label for="name">Nama</label>
@@ -37,25 +37,22 @@
                         @enderror
                       </div>
                     </div>
+
                     <div class="col-12">
                       <div class="form-group">
-                        <label for="test">Test</label>
-                        <select class="form-select" aria-label="Default select example">
-                          <option selected>Open this select menu</option>
+                        <label for="kode_database">Kode Database</label>
+                        <select class="form-select @error('kode_database') is-invalid @enderror" id="kode_database" name="kode_database"
+                          required>
                           @foreach ($test as $item)
                               <option value="{{ $item }}">{{ $item }}</option>
                           @endforeach
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
                         </select>
-                        {{-- <input type="text" id="test" class="form-control @error('test') is-invalid @enderror"
-                          name="test" placeholder="Singkatan Nama" required> --}}
-                        @error('test')
+                        @error('kode_database')
                           @include('layouts.partial.invalid-form', ['message' => $message])
                         @enderror
                       </div>
                     </div>
+
                     <div class="col-12">
                       <div class="form-group">
                         <label for="description">Deskripsi</label>
@@ -67,6 +64,7 @@
                         @enderror
                       </div>
                     </div>
+
                     <div class="col-12">
                       <div class="form-group">
                         <label for="type">Tipe</label>
@@ -80,6 +78,7 @@
                         @enderror
                       </div>
                     </div>
+
                     <div class="col-12">
                       <div class="form-group">
                         <label for="bobot">Bobot</label>
@@ -94,6 +93,7 @@
                         @enderror
                       </div>
                     </div>
+                    
                     <div class="col-12 d-flex justify-content-end">
                       <button type="submit" class="btn btn-primary me-1 mb-1">Tambah Data</button>
                     </div>
