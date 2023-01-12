@@ -28,23 +28,17 @@
                   <div class="row">
                     <div class="col-12">
                       <div class="form-group">
-                        <label for="codeSaham">Code Saham</label>
-                        <input type="text" id="codeSaham" class="form-control @error('codeSaham') is-invalid @enderror"
-                          name="codeSaham" placeholder="4 Character" required>
+                        <label for="kode_database">Kode Database</label>
+                        <select class="form-select @error('kode_database') is-invalid @enderror" id="kode_database" name="kode_database"
+                          required>
+                          @foreach ($test as $item)
+                              <option value="{{ $item }}">{{ $item }}</option>
+                          @endforeach
+                        </select>
+                        @error('kode_database')
+                          @include('layouts.partial.invalid-form', ['message' => $message])
+                        @enderror
                       </div>
-                      @error('codeSaham')
-                        @include('layouts.partial.invalid-form', ['message' => $message])
-                      @enderror
-                    </div>
-                    <div class="col-12">
-                      <div class="form-group">
-                        <label for="nameSaham">Nama Saham</label>
-                        <input type="text" id="nameSaham" class="form-control @error('nameSaham') is-invalid @enderror"
-                          name="nameSaham" required>
-                      </div>
-                      @error('nameSaham')
-                        @include('layouts.partial.invalid-form', ['message' => $message])
-                      @enderror
                     </div>
                     <div class="col-12 d-flex justify-content-end">
                       <button type="submit" class="btn btn-primary me-1 mb-1">Tambah Data</button>

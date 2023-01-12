@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alternatif;
-use App\Models\Kriteria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -13,27 +12,16 @@ class AlternatifController extends Controller
 {
     public function index()
     {
-        $allAlternatif = Alternatif::all();
+        $allAlternatif = Alternatif::paginate(10);
 
-        $coba = Kriteria::select('kode_database')->pluck('kode_database');
-        foreach ($coba as $value) {
-            
-        }
-        // echo $coba;
-        // dd($coba);
-        $test = DB::table('master')->get($value);
-        // $a=array();
-        // foreach ($test as $final) {
-        //     foreach ($final as $result ) {
-        //         $a[] = $result;
-        //     }
-        // }
-        return view('dashboard.alternatif.index', compact('allAlternatif', 'a'));
+        return view('dashboard.alternatif.index', compact('allAlternatif'));
     }
 
     public function create()
     {
-        return view('dashboard.alternatif.create');
+        $test = Schema::getColumnListing('master');
+
+        return view('dashboard.alternatif.create', compact('test'));
     }
 
     public function store(Request $request)
@@ -43,11 +31,16 @@ class AlternatifController extends Controller
         $lastValueCode = DB::table('alternatif')->orderBy('code', 'desc')->first();
         $code = is_null($lastValueCode) ? 1 : $lastValueCode->code + 1;
 
-        $alternatif = Alternatif::create([
-            'code' => $code,
-            'code_saham' => $request->codeSaham,
-            'name_saham' => $request->nameSaham,
-        ]);
+        $result = DB::table('master')->pluck($request->kode_database);
+        $data=[];
+        foreach ($result as $value) {
+            $data[] = [
+                'code'=> $code,
+                'kode_database' => $value,
+            ];
+            $code++;
+        }
+       $alternatif = Alternatif::insert($data);
 
         if ($alternatif) {
             return redirect()
@@ -78,8 +71,7 @@ class AlternatifController extends Controller
         $alternatif = Alternatif::findOrFail($id);
 
         $alternatif->update([
-            'code_saham' => $request->codeSaham,
-            'name_saham' => $request->nameSaham,
+            'kode_database' => $request->kode_database,
         ]);
 
         if ($alternatif) {
@@ -121,8 +113,7 @@ class AlternatifController extends Controller
     protected function validator(Request $request)
     {
         return $request->validate([
-            'codeSaham' => ['required', 'string', 'size:4'],
-            'nameSaham' => ['required', 'string', 'max:255'],
+            'kode_database' => ['required', 'string', 'max:255'],
         ]);
     }
 }

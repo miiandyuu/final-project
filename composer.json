@@ -15,7 +15,8 @@
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.4",
-        "livewire/livewire": "^2.10"
+        "livewire/livewire": "^2.10",
+        "twbs/bootstrap": "5.3.0-alpha1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",

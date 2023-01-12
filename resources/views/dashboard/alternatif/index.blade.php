@@ -17,7 +17,6 @@
         <p class="m-0">Halaman Alternatif</p>
         <div>
           <a href="{{ route('alternatif.create') }}"><button class="btn btn-success">Tambah Alternatif</button></a>
-          <a href="{{ route('alternatif.create') }}"><button class="btn btn-success">Pilih Alternatif</button></a>
           <a href="{{ route('nilai-bobot.index') }}"><button class="btn btn-warning">Lanjut Nilai Bobot <i
             class="badge-circle badge-circle-light-secondary font-medium-1"
             data-feather="arrow-right"></i></button></a>
@@ -31,8 +30,7 @@
       <thead>
         <tr>
           <th class="text-center">Alternatif</th>
-          <th class="text-center">Code Saham</th>
-          <th class="text-center">Nama Saham</th>
+          <th class="text-center">Code Alternatif</th>
           <th class="text-center">Aksi</th>
         </tr>
       </thead>
@@ -40,11 +38,7 @@
         @foreach ($allAlternatif as $alternatif)
           <tr>
             <td>A{{ $alternatif->code }}</td>
-            @foreach ($a as $test)
-              <td>{{ $test }}</td>
-            @endforeach
-            <td>{{ strtoupper($alternatif->code_saham) }}</td>
-            <td>{{ ucwords($alternatif->name_saham) }}</td>
+            <td>{{ strtoupper($alternatif->kode_database) }}</td>
             <td>
               <div class="d-flex justify-content-around">
                 {{-- Update --}}
@@ -52,7 +46,7 @@
                   <i class="badge-circle badge-circle-light-secondary font-medium-1" data-feather="edit"></i>Ubah
                 </a>
                 {{-- Delete --}}
-                <form onsubmit="return confirm('Ingin Menghapus Alternatif {{ strtoupper($alternatif->code_saham) }} ?');"
+                <form onsubmit="return confirm('Ingin Menghapus Alternatif {{ strtoupper($alternatif->kode_database) }} ?');"
                   action="{{ route('alternatif.destroy', $alternatif->id) }}" method="POST">
                   @csrf
                   @method('DELETE')
@@ -68,4 +62,5 @@
       </tbody>
     </table>
   </div>
+  {{ $allAlternatif->links() }}
 @endsection

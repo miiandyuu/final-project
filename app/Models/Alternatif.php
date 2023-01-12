@@ -11,7 +11,7 @@ class Alternatif extends Model
 
     protected $table = 'alternatif';
 
-    protected $fillable = ['code', 'code_saham', 'name_saham'];
+    protected $fillable = ['code', 'kode_database'];
 
     public function nilaiBobot()
     {
