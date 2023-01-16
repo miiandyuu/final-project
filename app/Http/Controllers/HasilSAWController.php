@@ -17,7 +17,7 @@ class HasilSAWController extends Controller
         if (!$checkHasEmptyData) {
             $nilaiBobotGroupByAlternatifId = DB::table('nilai_bobot')
                 ->join('alternatif', 'nilai_bobot.alternatif_id', '=', 'alternatif.id')
-                ->select('nilai_bobot.alternatif_id', 'alternatif.code', 'alternatif.code_saham')
+                ->select('nilai_bobot.alternatif_id', 'alternatif.code', 'alternatif.kode_database')
                 ->orderBy('nilai_bobot.alternatif_id')
                 ->groupBy('nilai_bobot.alternatif_id')
                 ->get();
@@ -49,7 +49,7 @@ class HasilSAWController extends Controller
         foreach ($allBobot as $item) {
             // Kali 10 agar total menjadi bobot = 10
             $resultBobot = $item->bobot / $totalBobot * 10;
-            $result[] = ['id' => $item->id, 'name' => $item->name, 'description' => $item->description, 'type' => $item->type, 'bobot' => $item->bobot, 'persentase_bobot' => $resultBobot];
+            $result[] = ['id' => $item->id, 'name' => $item->name, 'type' => $item->type, 'bobot' => $item->bobot, 'persentase_bobot' => $resultBobot];
         }
 
         return $result;
@@ -103,7 +103,7 @@ class HasilSAWController extends Controller
     {
         $nilaiBobotGroupByAlternatifId = DB::table('nilai_bobot')
             ->join('alternatif', 'nilai_bobot.alternatif_id', '=', 'alternatif.id')
-            ->select('nilai_bobot.alternatif_id', 'alternatif.code', 'alternatif.code_saham', 'alternatif.name_saham')
+            ->select('nilai_bobot.alternatif_id', 'alternatif.code', 'alternatif.kode_database')
             ->orderBy('nilai_bobot.alternatif_id')
             ->groupBy('nilai_bobot.alternatif_id')
             ->get();
@@ -119,7 +119,7 @@ class HasilSAWController extends Controller
                 $vektorV += $persentaseBobot[$j]['persentase_bobot'] * $matrixTernormalisasi[$i][$j]['value_r'];
             }
 
-            $result[] = ['alternatif_code' => $nilaiBobotGroupByAlternatifId[$i]->code, 'code_saham' => $nilaiBobotGroupByAlternatifId[$i]->code_saham, 'name_saham' => $nilaiBobotGroupByAlternatifId[$i]->name_saham, 'vektor_v' => $vektorV];
+            $result[] = ['alternatif_code' => $nilaiBobotGroupByAlternatifId[$i]->code, 'kode_database' => $nilaiBobotGroupByAlternatifId[$i]->kode_database, 'vektor_v' => $vektorV];
         }
 
         return $result;
@@ -142,7 +142,7 @@ class HasilSAWController extends Controller
         $allKriteria = Kriteria::all();
         $nilaiBobotGroupByAlternatifId = DB::table('nilai_bobot')
             ->join('alternatif', 'nilai_bobot.alternatif_id', '=', 'alternatif.id')
-            ->select('alternatif_id', 'code', 'code_saham', 'name_saham')
+            ->select('alternatif_id', 'code', 'kode_database',)
             ->orderBy('alternatif.code')
             ->groupBy('alternatif.id')
             ->get();
