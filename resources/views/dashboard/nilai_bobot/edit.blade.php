@@ -39,9 +39,6 @@
                         <label for="alternatif">Alternatif</label>
                         <input type="hidden" name="alternatif" id="alternatif"
                           value="{{ $selectedAlternatif[0]->alternatif_id }}">
-                        <input type="text" id="alternatif_view"
-                          class="form-control @error('alternatif') is-invalid @enderror" name="alternatif_view" readonly
-                          value="{{ ucwords($selectedAlternatif[0]->name_saham) }} ({{ strtoupper($selectedAlternatif[0]->code_saham) }})">
                         @error('alternatif')
                           @include('layouts.partial.invalid-form', ['message' => $message])
                         @enderror

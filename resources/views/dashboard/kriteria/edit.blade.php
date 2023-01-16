@@ -25,9 +25,9 @@
               <form class="form form-vertical" action="{{ route('kriteria.update', $kriteria->id) }}" method="POST">
                 @csrf
                 @method('PUT')
-
                 <div class="form-body">
                   <div class="row">
+
                     <div class="col-12">
                       <div class="form-group">
                         <label for="name">Nama</label>
@@ -38,17 +38,22 @@
                         @enderror
                       </div>
                     </div>
+
                     <div class="col-12">
                       <div class="form-group">
-                        <label for="description">Deskripsi</label>
-                        <input type="text" id="description"
-                          class="form-control @error('description') is-invalid @enderror" name="description"
-                          placeholder="Deskripsi Singkatan Nama" required value="{{ $kriteria->description }}">
-                        @error('description')
+                        <label for="kode_database">Kode Database</label>
+                        <select class="form-select @error('kode_database') is-invalid @enderror" id="kode_database" name="kode_database"
+                          required>
+                          @foreach ($test as $item)
+                              <option value="{{ $item }}">{{ $item }}</option>
+                          @endforeach
+                        </select>
+                        @error('kode_database')
                           @include('layouts.partial.invalid-form', ['message' => $message])
                         @enderror
                       </div>
                     </div>
+
                     <div class="col-12">
                       <div class="form-group">
                         <label for="type">Tipe</label>
@@ -62,6 +67,7 @@
                         @enderror
                       </div>
                     </div>
+
                     <div class="col-12">
                       <div class="form-group">
                         <label for="bobot">Bobot</label>

@@ -32,15 +32,16 @@
                 @csrf
                 <div class="form-body">
                   <div class="row">
-                    <div class="col-12">
+                    
+                    <div class="col-12" style="overflow-x: hidden;">
                       <div class="form-group">
                         <label for="alternatif">Alternatif</label>
                         <select class="form-select @error('alternatif') is-invalid @enderror" id="alternatif"
                           name="alternatif" required>
                           <option value="" selected>Pilih Alternatif...</option>
                           @foreach ($allAlternatif as $alternatif)
-                            <option value='{{ $alternatif->id }}'>{{ ucwords($alternatif->name_saham) }}
-                              ({{ strtoupper($alternatif->code_saham) }})
+                            <option value='{{ $alternatif->id }}'>
+                              {{ $alternatif->kode_database }}
                             </option>
                           @endforeach
                         </select>
@@ -48,6 +49,34 @@
                           @include('layouts.partial.invalid-form', ['message' => $message])
                         @enderror
                       </div>
+                      <br>
+                        <table id="example" class="table table-striped table-responsive" style="width:100%; nowrap display">
+                          <thead>
+                              <tr>
+                                @foreach ($masterColumns as $masterColumn)
+                                    <td>{{ $masterColumn }}</td>
+                                @endforeach
+                              </tr>
+                          </thead>
+                          <tbody>
+                            @foreach ($master as $row)
+                                <tr>
+                                  @foreach ($masterColumns as $masterColumn)
+                                    <td>{{ $row -> $masterColumn }}</td>
+                                  @endforeach
+                                </tr>
+                            @endforeach
+                          </tbody>
+                          <tfoot>
+                            <tr>
+                              @foreach ($masterColumns as $masterColumn)
+                                  <td>{{ $masterColumn }}</td>
+                              @endforeach
+                            </tr>
+                          </tfoot>
+                        </table>
+                        {{ $master->links() }}
+                      <br>
                       <h4 class="text-center">Kriteria</h4>
                       <div class="row match-height mb-3">
                         <div class="col-12">
@@ -90,4 +119,18 @@
       </div>
     </div>
   </section>
+@endsection
+
+@section('custom-javascript')
+  <script>
+    $(document).ready(function () {
+        $('#example').DataTable({
+          "scrollX":true,
+          "pagingType" : "full_numbers",
+          "lengthMenu" : [],
+          "paging": false,
+          "info": false,
+        });
+    });
+  </script>
 @endsection

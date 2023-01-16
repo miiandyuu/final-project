@@ -110,6 +110,7 @@ class NilaiBobotSeeder extends Seeder
             'alternatif87' => [2, 2, 4, 1, 2, 2, 5],
             'alternatif88' => [2, 2, 3, 1, 2, 1, 5],
             'alternatif89' => [1, 1, 1, 1, 5, 2, 3],
+            'alternatif90' => [1, 1, 1, 1, 5, 2, 3],
         ];
 
         foreach ($allAlternatif as $keyAlt => $alternatif) {

@@ -24,8 +24,13 @@ class NilaiBobotController extends Controller
         $allKriteria = Kriteria::all();
         $allSubkriteria = Subkriteria::all();
         $allAlternatif = Alternatif::all();
+        
+        $master = DB::table('master')->orderBy('id')->cursorPaginate(5);
+        
 
-        return view('dashboard.nilai_bobot.create_all', compact('allKriteria', 'allSubkriteria', 'allAlternatif'));
+        $masterColumns = DB::getSchemaBuilder()->getColumnListing('master');
+
+        return view('dashboard.nilai_bobot.create_all', compact('allKriteria', 'allSubkriteria', 'allAlternatif','master', 'masterColumns'));
     }
 
     public function store_all(Request $request)
@@ -57,7 +62,7 @@ class NilaiBobotController extends Controller
         $selectedAlternatif = DB::table('nilai_bobot')
             ->join('alternatif', 'nilai_bobot.alternatif_id', '=', 'alternatif.id')
             ->join('kriteria', 'nilai_bobot.kriteria_id', '=', 'kriteria.id')
-            ->select('nilai_bobot.*', 'alternatif.code_saham', 'alternatif.name_saham', 'kriteria.name AS kriteria_name')
+            ->select('nilai_bobot.*', 'alternatif.kode_database', 'kriteria.name AS kriteria_name')
             ->orderBy('kriteria.id')
             ->where('nilai_bobot.alternatif_id', '=', $alternatifId)
             ->get();
@@ -100,14 +105,13 @@ class NilaiBobotController extends Controller
         ]);
     }
 
-    protected function process_index_data()
-    {
+    protected function process_index_data() {
         $EMPTY_VALUE = 'Empty';
         $result = [];
         $allKriteria = Kriteria::all();
         $nilaiBobotGroupByAlternatifId = DB::table('nilai_bobot')
             ->join('alternatif', 'nilai_bobot.alternatif_id', '=', 'alternatif.id')
-            ->select('alternatif_id', 'code', 'code_saham', 'name_saham')
+            ->select('alternatif_id', 'code', 'kode_database')
             ->orderBy('alternatif.code')
             ->groupBy('alternatif.id')
             ->get();

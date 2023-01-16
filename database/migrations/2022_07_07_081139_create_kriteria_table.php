@@ -19,7 +19,7 @@ class CreateKriteriaTable extends Migration
             $table->integer('code')->unique();
             $table->string('name');
             $table->string('kode_database');
-            $table->string('description');
+            // $table->string('description');
             $table->string('type', 10);
             $table->float('bobot');
             $table->timestamps();

@@ -30,24 +30,14 @@
                   <div class="row">
                     <div class="col-12">
                       <div class="form-group">
-                        <label for="codeSaham">Code Saham</label>
-                        <input type="text" id="codeSaham" class="form-control @error('codeSaham') is-invalid @enderror"
-                          name="codeSaham" required value="{{ $alternatif->kode_database }}">
-                        @error('codeSaham')
+                        <label for="kode_database">Code Alternative</label>
+                        <input type="text" id="kode_database" class="form-control @error('kode_database') is-invalid @enderror"
+                          name="kode_database" required value="{{ $alternatif->kode_database }}">
+                        @error('kode_database')
                           @include('layouts.partial.invalid-form', ['message' => $message])
                         @enderror
                       </div>
                     </div>
-                    {{-- <div class="col-12">
-                      <div class="form-group">
-                        <label for="nameSaham">Nama Saham</label>
-                        <input type="text" id="nameSaham" class="form-control @error('nameSaham') is-invalid @enderror"
-                          name="nameSaham" required value="{{ $alternatif->deksripsi_alternatif }}">
-                        @error('nameSaham')
-                          @include('layouts.partial.invalid-form', ['message' => $message])
-                        @enderror
-                      </div>
-                    </div> --}}
                     <div class="col-12 d-flex justify-content-end">
                       <button type="submit" class="btn btn-primary me-1 mb-1">Ubah Data</button>
                     </div>

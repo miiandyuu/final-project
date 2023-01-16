@@ -48,7 +48,7 @@
             <td>C{{ $kriteria->code }}</td>
             <td>{{ strtoupper($kriteria->name) }}</td>
             <td>{{ strtoupper($kriteria->kode_database) }}</td>
-            <td>{{ ucwords($kriteria->description) }}</td>
+            {{-- <td>{{ ucwords($kriteria->description) }}</td> --}}
             <td>{{ ucwords($kriteria->type) }}</td>
             <td>{{ $kriteria->bobot }}</td>
             @can('is_staff_or_admin')

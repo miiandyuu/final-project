@@ -16,7 +16,7 @@
       <div class="card-body d-flex align-items-center justify-content-between">
         <p class="m-0">Halaman Alternatif</p>
         <div>
-          <a href="{{ route('alternatif.create') }}"><button class="btn btn-success">Tambah Alternatif</button></a>
+          <a href="{{ route('alternatif.create') }}"><button class="btn btn-success">Pilih Alternatif</button></a>
           <a href="{{ route('nilai-bobot.index') }}"><button class="btn btn-warning">Lanjut Nilai Bobot <i
             class="badge-circle badge-circle-light-secondary font-medium-1"
             data-feather="arrow-right"></i></button></a>
@@ -62,5 +62,5 @@
       </tbody>
     </table>
   </div>
-  {{ $allAlternatif->links() }}
+  {{ $allAlternatif->links('pagination::bootstrap-4') }}
 @endsection

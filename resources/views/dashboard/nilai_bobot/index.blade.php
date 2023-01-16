@@ -20,9 +20,9 @@
           <a href="{{ route('saw.index') }}"><button class="btn btn-warning">Metode SAW <i
                 class="badge-circle badge-circle-light-secondary font-medium-1"
                 data-feather="arrow-right"></i></button></a>
-          <a href="{{ route('wp.index') }}"><button class="btn btn-warning">Metode WP <i
+          {{-- <a href="{{ route('wp.index') }}"><button class="btn btn-warning">Metode WP <i
                 class="badge-circle badge-circle-light-secondary font-medium-1"
-                data-feather="arrow-right"></i></button></a>
+                data-feather="arrow-right"></i></button></a> --}}
         </div>
       </div>
     </div>
@@ -46,7 +46,7 @@
         <tbody class="bg-white">
           @foreach ($allDataProcessed as $item)
             <tr>
-              <td>{{ $item->name_saham }} ({{ $item->code_saham }})</td>
+              <td>{{ $item->kode_database }}</td>
               @for ($i = 0; $i < count($allKriteria); $i++)
                 @if (is_string($item->dataKriteria[$i]['nilai']))
                   <td class="text-danger"><i>{{ $item->dataKriteria[$i]['nilai'] }}</i></td>

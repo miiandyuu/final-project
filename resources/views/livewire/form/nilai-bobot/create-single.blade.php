@@ -9,8 +9,8 @@
               name="alternatif" wire:model="selectedAlternatif" required>
               <option value="" selected>Pilih Alternatif...</option>
               @foreach ($allAlternatif as $alternatif)
-                <option value="{{ $alternatif->id }}">{{ ucwords($alternatif->name_saham) }}
-                  ({{ strtoupper($alternatif->code_saham) }})
+                <option value="{{ $alternatif->id }}">
+                  ({{ strtoupper($alternatif->kode_database) }})
                 </option>
               @endforeach
             </select>

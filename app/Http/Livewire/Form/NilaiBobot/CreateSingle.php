@@ -20,7 +20,7 @@ class CreateSingle extends Component
 
     public function render()
     {
-        $allAlternatif = DB::table('alternatif')->select('id', 'code_saham', 'name_saham')->get();
+        $allAlternatif = DB::table('alternatif')->select('id', 'kode_database')->get();
         $allKriteria = DB::table('kriteria')->select('id', 'name')->get();
 
         return view('livewire.form.nilai-bobot.create-single', compact('allAlternatif', 'allKriteria'));

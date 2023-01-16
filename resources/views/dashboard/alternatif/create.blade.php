@@ -10,7 +10,7 @@
   <section class="header-menu">
     <div class="card m-0 border border-bottom-0 shadow-none">
       <div class="card-body d-flex align-items-center justify-content-between">
-        <p class="m-0">Tambah Alternatif</p>
+        <p class="m-0">Pilih Alternatif</p>
         <a href="{{ route('alternatif.index') }}"><button class="btn btn-secondary">Kembali</button></a>
       </div>
     </div>
@@ -26,6 +26,14 @@
                 @csrf
                 <div class="form-body">
                   <div class="row">
+                    @if ($altIsEmpty != true)
+                    <div class="alert alert-danger" role="alert">
+                      <h4 class="alert-heading">Read Me!</h4>
+                      <p>Anda sudah memilih data alternatif. Sistem hanya dapat memilih satu jenis alternatif dikarenakan banyaknya jumlah data yang digunakan.</p>
+                      <hr>
+                      <p class="mb-0">Jika anda memilih data alternatif baru, maka seluruh data alternatif lama akan terhapus</p>
+                    </div>
+                    @endif
                     <div class="col-12">
                       <div class="form-group">
                         <label for="kode_database">Kode Database</label>
@@ -41,7 +49,7 @@
                       </div>
                     </div>
                     <div class="col-12 d-flex justify-content-end">
-                      <button type="submit" class="btn btn-primary me-1 mb-1">Tambah Data</button>
+                      <button type="submit" class="btn btn-primary me-1 mb-1">Pilih Data</button>
                     </div>
                   </div>
                 </div>

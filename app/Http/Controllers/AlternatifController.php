@@ -20,14 +20,17 @@ class AlternatifController extends Controller
     public function create()
     {
         $test = Schema::getColumnListing('master');
+        $altIsEmpty = Alternatif::get()->isEmpty();
 
-        return view('dashboard.alternatif.create', compact('test'));
+
+        return view('dashboard.alternatif.create', compact('test', 'altIsEmpty'));
     }
 
     public function store(Request $request)
     {
         $this->validator($request);
-
+        DB::table('alternatif')->delete();
+        DB::statement("ALTER TABLE alternatif AUTO_INCREMENT = 1;");
         $lastValueCode = DB::table('alternatif')->orderBy('code', 'desc')->first();
         $code = is_null($lastValueCode) ? 1 : $lastValueCode->code + 1;
 

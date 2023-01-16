@@ -11,7 +11,13 @@ class Kriteria extends Model
 
     protected $table = 'kriteria';
 
-    protected $fillable = ['code', 'name', 'kode_database', 'description', 'type', 'bobot'];
+    protected $fillable = [
+        'code',
+        'name',
+        'kode_database',
+        'type',
+        'bobot'
+    ];
 
     public function subkriteria()
     {

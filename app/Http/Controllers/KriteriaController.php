@@ -37,7 +37,7 @@ class KriteriaController extends Controller
             'code' => $code,
             'name' => $request->name,
             'kode_database' => $request->kode_database,
-            'description' => $request->description,
+            // 'description' => $request->description,
             'type' => $request->type,
             'bobot' => $bobot,
         ]);
@@ -61,9 +61,10 @@ class KriteriaController extends Controller
     public function edit($id)
     {
         $this->authorize('is_staff_or_admin');
+        $test = Schema::getColumnListing('master');
 
         $kriteria = Kriteria::findOrFail($id);
-        return view('dashboard.kriteria.edit', compact('kriteria'));
+        return view('dashboard.kriteria.edit', compact('kriteria', 'test'));
     }
 
     public function update(Request $request, $id)
@@ -77,7 +78,7 @@ class KriteriaController extends Controller
 
         $kriteria->update([
             'name' => $request->name,
-            'description' => $request->description,
+            // 'description' => $request->description,
             'type' => $request->type,
             'bobot' => $bobot,
         ]);
@@ -124,7 +125,8 @@ class KriteriaController extends Controller
     {
         return $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'max:255'],
+            'kode_database' => ['required', 'string', 'max:255'],
+            // 'description' => ['required', 'string', 'max:255'],
             'type' => ['required', 'string', 'max:255', "regex:(benefit|cost)"],
             'bobot' => ['required', 'numeric', 'between:1,10'],
         ]);
