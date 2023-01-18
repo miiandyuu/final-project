@@ -26,6 +26,7 @@
             <li><a href="{{ route('subkriteria.index') }}">Subkriteria</a></li>
             <li><a href="{{ route('alternatif.index') }}">Alternatif</a></li>
             <li><a href="{{ route('nilai-bobot.index') }}">Nilai Bobot</a></li>
+            <li><a href="{{ route('nilai-kepentingan-kriteria.index') }}">Nilai Kepentingan Kriteria</a></li>
           </ul>
         </li>
         

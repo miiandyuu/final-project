@@ -9,6 +9,8 @@ use App\Http\Controllers\HasilWPController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\NilaiBobotController;
+use App\Http\Controllers\NilaiKepentinganKriteriaController;
+use App\Http\Controllers\NilaiKepentinganSubKriteriaController;
 use App\Http\Controllers\SubkriteriaController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -78,6 +80,14 @@ Route::prefix('admin')->middleware('auth')->group(function() {
         Route::put('/{alternatif_id}', [NilaiBobotController::class, 'update'])->name('nilai-bobot.update');
     });
 
+    Route::prefix('nilai-kepentingan-kriteria')->group(function() {
+        Route::get('/', [NilaiKepentinganKriteriaController::class, 'index'])->name('nilai-kepentingan-kriteria.index');
+        Route::post('/hasil_spk', [NilaiKepentinganKriteriaController::class, 'hasil_spk'])->name('hasil_pv_alternatif');
+        
+        Route::post('/prosess_sub_spk', [NilaiKepentinganSubKriteriaController::class,'prosess_sub_spk'])->name('prosess_sub_spk');
+        Route::post('/hasil_sub_spk', [NilaiKepentinganSubKriteriaController::class,'hasil_sub_spk'])->name('hasil_pv_sub_spk');
+    });
+
     Route::prefix('wp')->group(function() {
         Route::get('/', [HasilWPController::class, 'index'])->name('wp.index');
         Route::get('/hasil', [HasilWPController::class, 'hasil'])->name('wp.hasil');
@@ -86,6 +96,11 @@ Route::prefix('admin')->middleware('auth')->group(function() {
     Route::prefix('saw')->group(function() {
         Route::get('/', [HasilSAWController::class, 'index'])->name('saw.index');
         Route::get('/hasil', [HasilSAWController::class, 'hasil'])->name('saw.hasil');
+    });
+
+    Route::prefix('ahp')->group(function() {
+        Route::get('/', [HasilSAWController::class, 'index'])->name('ahp.index');
+        Route::get('/hasil', [HasilSAWController::class, 'hasil'])->name('ahp.hasil');
     });
 
     Route::prefix('user')->group(function() {
