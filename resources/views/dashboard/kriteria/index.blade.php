@@ -26,6 +26,7 @@
       </div>
     </div>
   </section>
+  <br>
   <!-- table bordered -->
   <div class="table-responsive">
     <table class="table table-bordered table-hover mb-0">
@@ -34,7 +35,6 @@
           <th class="text-center">Kriteria</th>
           <th class="text-center">Nama</th>
           <th class="text-center">Kode Database</th>
-          <th class="text-center">Keterangan</th>
           <th class="text-center">Tipe</th>
           <th class="text-center">Bobot</th>
           @can('is_staff_or_admin')

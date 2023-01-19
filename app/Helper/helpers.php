@@ -210,6 +210,129 @@ function nama_kriteria_by_id($kriteria_id) {
     return $kriteria->name;
 }
 
+function get_kriteria_option($selected = '')
+{
+    $arr = get_kriteria();
+    $a = '';
+    foreach ($arr as $key => $val) {
+        if ($key == $selected)
+            $a .= '<option value="' . $key . '" selected>' . $val->kode_database . '</option>';
+        else
+            $a .= '<option value="' . $key . '">' . $val->kode_database . '</option>';
+    }
+    return $a;
+}
 
+function get_kriteria()
+{
+    $rows = get_results("SELECT * FROM kriteria ORDER BY code");
+    $arr = array();
+    foreach ($rows as $row) {
+        $arr[$row->code] = $row;
+    }
+    return $arr;
+}
 
+function get_alternatif()
+{
+    $rows = get_results("SELECT * FROM alternatif ORDER BY code");
+    $arr = array();
+    foreach ($rows as $row) {
+        $arr[$row->code] = $row;
+    }
+    return $arr;
+}
+
+function get_rel_alternatif()
+{
+    $rows = get_results("SELECT * FROM nilai_bobot ORDER BY alternatif_id, kriteria_id");
+    $arr = array();
+    foreach ($rows as $row) {
+        $arr[$row->alternatif_id][$row->kriteria_id] = $row->nilai;
+    }
+    return $arr;
+}
+
+function get_type_option($selected = '')
+{
+    $arr = [
+        'benefit' => 'Benefit',
+        'cost' => 'Cost'
+    ];
+    $a = '';
+    foreach ($arr as $key => $value) {
+        if ($selected == $key)
+            $a .= "<option value='$key' selected>$value</option>";
+        else
+            $a .= "<option value='$key'>$value</option>";
+    }
+    return $a;
+}
+
+function print_msg($msg, $type = 'danger')
+{
+    echo ('<div class="alert alert-' . $type . ' alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' . $msg . '</div>');
+}
+
+function show_error($errors)
+{
+    if ($errors->any()) {
+        echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <ul class="m-0">';
+        foreach ($errors->all() as $error) {
+            echo '<li>' . $error . '</li>';
+        }
+        echo '</ul><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>';
+    }
+}
+function show_msg()
+{
+    if ($messsage = session()->get('message')) {
+        echo '<div class="alert alert-info alert-dismissible fade show" role="alert">'
+            . $messsage . '
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>';
+    }
+}
+
+function rp($number)
+{
+    return 'Rp ' . number_format($number);
+}
+
+function kode_oto($field, $table, $prefix, $length)
+{
+    $var = get_var("SELECT $field FROM $table WHERE $field REGEXP '{$prefix}[0-9]{{$length}}' ORDER BY $field DESC");
+    if ($var) {
+        return $prefix . substr(str_repeat('0', $length) . ((int)substr($var, -$length) + 1), -$length);
+    } else {
+        return $prefix . str_repeat('0', $length - 1) . 1;
+    }
+}
+
+function get_row($sql = '')
+{
+    $rows =  DB::select($sql);
+    if ($rows)
+        return $rows[0];
+}
+
+function get_results($sql = '')
+{
+    return DB::select($sql);
+}
+
+function get_var($sql = '')
+{
+    $row = DB::select($sql);
+    if ($row) {
+        return current(current($row));
+    }
+}
+
+function query($sql, $params = [])
+{
+    return DB::statement($sql, $params);
+}
 

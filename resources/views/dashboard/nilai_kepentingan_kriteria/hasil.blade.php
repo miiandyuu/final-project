@@ -73,130 +73,132 @@ for ($x=0; $x <= ($criteriaCount-2) ; $x++) {
 	$consRatio   = getConsRatio($jmlmpb,$jmlmnk,$criteriaCount);
 @endphp
 
-<section class="content" style="overflow-x: scroll; ">
-	<h3 class="ui header">Matriks Perbandingan Berpasangan</h3>
-	<table class="table table-bordered table-sm">
-		<thead>
-			<tr>
-				<th>Kriteria</th>
-				<?php
-					for ($i=0; $i <= ($criteriaCount-1); $i++) {
-						echo "<th>".getKriteriaNama($i)."</th>";
-					}
-				?>
-			</tr>
-		</thead>
-		<tbody>
-<?php
-	for ($x=0; $x <= ($criteriaCount-1); $x++) {
-		echo "<tr>";
-		echo "<td>".getKriteriaNama($x)."</td>";
-			for ($y=0; $y <= ($criteriaCount-1); $y++) {
-				echo "<td>".round($matrik[$x][$y],5)."</td>";
-			}
+<section class="header-menu mb-3">
+	<div class="card m-0 border shadow-none p-3">
+		<h4 class="text-center mb-3">Matriks Perbandingan Berpasangan</h4>
+		<div class="table-responsive">
+			<table class="table table-bordered table-sm">
+				<thead>
+					<tr>
+						<th class="text-center">Kriteria</th>
+						<?php
+							for ($i=0; $i <= ($criteriaCount-1); $i++) {
+								echo "<th class='text-center'>".getKriteriaNama($i)."</th>";
+							}
+						?>
+					</tr>
+				</thead>
+				<tbody class="bg-white">
+					<?php
+						for ($x=0; $x <= ($criteriaCount-1); $x++) {
+							echo "<tr>";
+							echo "<td class='text-center'>".getKriteriaNama($x)."</td>";
+								for ($y=0; $y <= ($criteriaCount-1); $y++) {
+									echo "<td class='text-center'>".round($matrik[$x][$y],5)."</td>";
+								}
 
-		echo "</tr>";
-	}
-?>
-		</tbody>
-		<tfoot>			<tr>
-				<th>Jumlah</th>
-<?php
-		for ($i=0; $i <= ($criteriaCount-1); $i++) {
-			echo "<th>".round($jmlmpb[$i],5)."</th>";
-		}
-?>
-			</tr>
-		</tfoot>
-	</table>
-
-
-	<br>
-
-	<h3 class="ui header">Matriks Nilai Kriteria</h3>
-	<table class="table table-bordered table-sm">
-		<thead>
-			<tr>
-				<th>Kriteria</th>
-<?php
-	for ($i=0; $i <= ($criteriaCount-1); $i++) {
-		echo "<th>".getKriteriaNama($i)."</th>";
-	}
-?>
-				<th>Jumlah</th>
-				<th>Priority Vector</th>
-			</tr>
-		</thead>
-		<tbody>
-<?php
-	for ($x=0; $x <= ($criteriaCount-1); $x++) {
-		echo "<tr>";
-		echo "<td>".getKriteriaNama($x)."</td>";
-			for ($y=0; $y <= ($criteriaCount-1); $y++) {
-				echo "<td>".round($matrikb[$x][$y],5)."</td>";
-			}
-
-		echo "<td>".round($jmlmnk[$x],5)."</td>";
-		echo "<td>".round($pv[$x],5)."</td>";
-
-		echo "</tr>";
-	}
-?>
-
-		</tbody>
-		<tfoot>
-			<tr>
-				<th colspan="<?php echo ($criteriaCount+2)?>">Principe Eigen Vector (λ maks)</th>
-				<th><?php echo (round($eigenvektor,5))?></th>
-			</tr>
-			<tr>
-				<th colspan="<?php echo ($criteriaCount+2)?>">Consistency Index</th>
-				<th><?php echo (round($consIndex,5))?></th>
-			</tr>
-			<tr>
-				<th colspan="<?php echo ($criteriaCount+2)?>">Consistency Ratio</th>
-				<th><?php echo (round(($consRatio * 100),2))?> %</th>
-			</tr>
-		</tfoot>
-	</table>
-
-<?php
-	if ($consRatio > 0.1) {
-?>
-		<div class="alert alert-danger alert-dismissible " role="alert">
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
-		</button>
-		<strong>Nilai Consistency Ratio melebihi 10% !!!</strong>
-		<p>Mohon input kembali tabel perbandingan...</p>
+							echo "</tr>";
+						}
+					?>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th  class='text-center'>Jumlah</th>
+						<?php
+							for ($i=0; $i <= ($criteriaCount-1); $i++) {
+								echo "<th  class='text-center'>".round($jmlmpb[$i],5)."</th>";
+							}
+						?>
+					</tr>
+				</tfoot>
+			</table>
 		</div>
-
-		<a href='javascript:history.back()'>
-		<button class="btn btn-default">
-			<i class="fa fa-arrow-left"></i>
-				Kembali
-			</button>
-		</a>
-
-<?php
-	} else {
-
-?>
-<br>
-@php
-    $data = DB::table('kriteria')->orderBy('id','ASC')->first();
-	$kriteria_id = $data->id;
-@endphp
-<form action="{{ route('prosess_sub_spk') }}" method="POST">
-    @csrf
-    <input type="hidden" name="kriteria_id" value="{{ $kriteria_id }}">
-    <button class="btn btn-success">
-        <i class="fa fa-arrow-right"></i>
-            Lanjut
-    </button>
-</form>
+	</div>
 </section>
-<?php
-	}
-?>
 
+<section class="header-menu mb-3">
+	<div class="card m-0 border shadow-none p-3">
+		<h4 class="text-center mb-3">Matriks Nilai Kriteria</h4>
+		<div class="table-responsive">
+			<table class="table table-bordered table-sm">
+				<thead>
+					<tr>
+						<th class="text-center">Kriteria</th>
+						<?php
+							for ($i=0; $i <= ($criteriaCount-1); $i++) {
+								echo "<th class='text-center'>".getKriteriaNama($i)."</th>";
+							}
+						?>
+						<th class="text-center">Jumlah</th>
+						<th class="text-center">Priority Vector</th>
+					</tr>
+				</thead>
+				<tbody class="bg-white">
+					<?php
+						for ($x=0; $x <= ($criteriaCount-1); $x++) {
+							echo "<tr>";
+								echo "<td class='text-center'>".getKriteriaNama($x)."</td>";
+									for ($y=0; $y <= ($criteriaCount-1); $y++) {
+										echo "<td class='text-center'>".round($matrik[$x][$y],5)."</td>";
+									}
+								echo "<td class='text-center'>".round($jmlmnk[$x],5)."</td>";
+								echo "<td class='text-center'>".round($pv[$x],5)."</td>";
+							echo "</tr>";
+						}
+					?>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th colspan="<?php echo ($criteriaCount+2)?>">Principe Eigen Vector (λ maks)</th>
+						<th class="text-center"><?php echo (round($eigenvektor,5))?></th>
+					</tr>
+					<tr>
+						<th colspan="<?php echo ($criteriaCount+2)?>">Consistency Index</th>
+						<th class="text-center"><?php echo (round($consIndex,5))?></th>
+					</tr>
+					<tr>
+						<th colspan="<?php echo ($criteriaCount+2)?>">Consistency Ratio</th>
+						<th class="text-center"><?php echo (round(($consRatio * 100),2))?> %</th>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+		<?php
+			if ($consRatio > 0.1) {
+		?>
+		<div class="alert alert-danger alert-dismissible " role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+			</button>
+			<strong>Nilai Consistency Ratio melebihi 10% !!!</strong>
+			<p>Mohon input kembali tabel perbandingan...</p>
+			</div>
+	
+			<a href='javascript:history.back()'>
+			<button class="btn btn-default">
+				<i class="fa fa-arrow-left"></i>
+					Kembali
+				</button>
+			</a>
+	
+		<?php
+			} else {
+		?>
+		<br>
+		@php
+			$data = DB::table('kriteria')->orderBy('id','ASC')->first();
+			$kriteria_id = $data->id;
+		@endphp
+		<form action="{{ route('prosess_sub_spk') }}" method="POST">
+			@csrf
+			<input type="hidden" name="kriteria_id" value="{{ $kriteria_id }}">
+			<button class="btn btn-success">
+				<i class="fa fa-arrow-right"></i>
+					Lanjut
+			</button>
+		</form>
+	</div>
+</section>
+  <?php
+	}
+	?>
 @endsection

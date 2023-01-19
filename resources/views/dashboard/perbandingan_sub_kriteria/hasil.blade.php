@@ -70,149 +70,151 @@ for ($i = 0; $i <= ($n-1); $i++) {
 
 @endphp
 
-<section class="content" style="overflow-x: scroll; ">
-	<h3 class="ui header">Matriks Perbandingan Berpasangan</h3>
-	<table class="table table-bordered">
-		<thead>
-			<tr>
-				<th>Kriteria</th>
-				<?php
-					for ($i=0; $i <= ($n-1); $i++) {
-						echo "<th>".getSubKriteriaNama($i,$kriteria_id)."</th>";
-					}
-				?>
-			</tr>
-		</thead>
-		<tbody>
-<?php
-	for ($x=0; $x <= ($n-1); $x++) {
-		echo "<tr>";
-		echo "<td>".getSubKriteriaNama($x,$kriteria_id)."</td>";
-			for ($y=0; $y <= ($n-1); $y++) {
-				echo "<td>".round($matrik[$x][$y],5)."</td>";
-			}
-
-		echo "</tr>";
-	}
-?>
-		</tbody>
-		<tfoot>			<tr>
-				<th>Jumlah</th>
-<?php
-		for ($i=0; $i <= ($n-1); $i++) {
-			echo "<th>".round($jmlmpb[$i],5)."</th>";
-		}
-?>
-			</tr>
-		</tfoot>
-	</table>
-
-
-	<br>
-
-	<h3 class="ui header">Matriks Nilai Sub Kriteria</h3>
-	<table class="table table-bordered">
-		<thead>
-			<tr>
-				<th>Kriteria</th>
-<?php
-	for ($i=0; $i <= ($n-1); $i++) {
-		echo "<th>".getSubKriteriaNama($i,$kriteria_id)."</th>";
-	}
-?>
-				<th>Jumlah</th>
-				<th>Priority Vector</th>
-			</tr>
-		</thead>
-		<tbody>
-<?php
-	for ($x=0; $x <= ($n-1); $x++) {
-		echo "<tr>";
-		echo "<td>".getSubKriteriaNama($x,$kriteria_id)."</td>";
-			for ($y=0; $y <= ($n-1); $y++) {
-				echo "<td>".round($matrikb[$x][$y],5)."</td>";
-			}
-
-		echo "<td>".round($jmlmnk[$x],5)."</td>";
-		echo "<td>".round($pv[$x],5)."</td>";
-
-		echo "</tr>";
-	}
-?>
-
-		</tbody>
-		<tfoot>
-			<tr>
-				<th colspan="<?php echo ($n+2)?>">Principe Eigen Vector (λ maks)</th>
-				<th><?php echo (round($eigenvektor,5))?></th>
-			</tr>
-			<tr>
-				<th colspan="<?php echo ($n+2)?>">Consistency Index</th>
-				<th><?php echo (round($consIndex,5))?></th>
-			</tr>
-			<tr>
-				<th colspan="<?php echo ($n+2)?>">Consistency Ratio</th>
-				<th><?php echo (round(($consRatio * 100),2))?> %</th>
-			</tr>
-		</tfoot>
-	</table>
-
-<?php
-	if ($consRatio > 0.1) {
-?>
-		<div class="alert alert-danger alert-dismissible " role="alert">
-		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
-		</button>
-		<strong>Nilai Consistency Ratio melebihi 10% !!!</strong>
-		<p>Mohon input kembali tabel perbandingan...</p>
+<section class="header-menu mb-3">
+	<div class="card m-0 border shadow-none p-3">
+		<h4 class="text-center mb-3">Matriks Perbandingan Berpasangan</h4>
+		<div class="table-responsive">
+			<table class="table table-bordered table-sm">
+				<thead>
+					<tr>
+						<th class="text-center">Kriteria</th>
+						<?php
+							for ($i=0; $i <= ($n-1); $i++) {
+								echo "<th class='text-center'>".getSubKriteriaNama($i,$kriteria_id)."</th>";
+							}
+						?>
+					</tr>
+				</thead>
+				<tbody class="bg-white">
+					<?php
+						for ($x=0; $x <= ($n-1); $x++) {
+							echo "<tr>";
+							echo "<td class='text-center'>".getSubKriteriaNama($x,$kriteria_id)."</td>";
+								for ($y=0; $y <= ($n-1); $y++) {
+									echo "<td class='text-center'>".round($matrik[$x][$y],5)."</td>";
+								}
+							echo "</tr>";
+						}
+					?>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th  class='text-center'>Jumlah</th>
+						<?php
+							for ($i=0; $i <= ($n-1); $i++) {
+								echo "<th class='text-center'>".round($jmlmpb[$i],5)."</th>";
+							}
+						?>
+					</tr>
+				</tfoot>
+			</table>
 		</div>
-
-		<a href='javascript:history.back()'>
-		<button class="btn btn-default">
-			<i class="fa fa-arrow-left"></i>
-				Kembali
-			</button>
-		</a>
-
-<?php
-	} else {
-
-?>
-@php
-	$jml = DB::table('kriteria')->where('id', '=', $kriteria_id)->count();
-@endphp
-@if ($jml == $kriteria_id)
-	<a href="{{ route('nilai-bobot.index') }}"><button class="btn btn-success">Lanjut Nilai Bobot<i
-		class="badge-circle badge-circle-light-secondary font-medium-1"
-		data-feather="arrow-right"></i></button></a>
-    {{-- <form action="{{ route('nilai-bobot.index') }}" method="POST">
-        @csrf
-        <input type="hidden" name="kriteria_id" value="{{ $kriteria_id }}">
-        <button class="btn btn-success">
-            <i class="fa fa-arrow-right"></i>
-            Lanjut
-        </button>
-    </form> --}}
-@else
-    @php
-        //cek next kriteria id
-		$data = DB::table('subkriteria')->orderBy('id', 'ASC')
-		->where('id', '>', $kriteria_id)
-		->first();
-        $kriteria_id = $data->kriteria_id;
-    @endphp
-    <form action="{{ route('prosess_sub_spk') }}" method="POST">
-        @csrf
-        <input type="hidden" name="kriteria_id" value="{{ $kriteria_id }}">
-        <button class="btn btn-success">
-            <i class="fa fa-arrow-right"></i>
-                Lanjut
-        </button>
-    </form>
-@endif
+	</div>
 </section>
-<?php
+
+<section class="header-menu mb-3">
+	<div class="card m-0 border shadow-none p-3">
+		<h4 class="text-center mb-3">Matriks Nilai Sub Kriteria</h4>
+		<div class="table-responsive">
+			<table class="table table-bordered table-sm">
+				<thead>
+					<tr>
+						<th class="text-center">Kriteria</th>
+						<?php
+							for ($i=0; $i <= ($n-1); $i++) {
+								echo "<th class='text-center'>".getSubKriteriaNama($i,$kriteria_id)."</th>";
+							}
+						?>
+						<th class="text-center">Jumlah</th>
+						<th class="text-center">Priority Vector</th>
+					</tr>
+				</thead>
+				<tbody class="bg-white">
+					<?php
+						for ($x=0; $x <= ($n-1); $x++) {
+							echo "<tr>";
+								echo "<td class='text-center'>".getSubKriteriaNama($x,$kriteria_id)."</td>";
+									for ($y=0; $y <= ($n-1); $y++) {
+										echo "<td class='text-center'>".round($matrikb[$x][$y],5)."</td>";
+									}
+								echo "<td class='text-center'>".round($jmlmnk[$x],5)."</td>";
+								echo "<td class='text-center'>".round($pv[$x],5)."</td>";
+							echo "</tr>";
+						}
+					?>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th colspan="<?php echo ($n+2)?>">Principe Eigen Vector (λ maks)</th>
+						<th class='text-center'><?php echo (round($eigenvektor,5))?></th>
+					</tr>
+					<tr>
+						<th colspan="<?php echo ($n+2)?>">Consistency Index</th>
+						<th class='text-center'><?php echo (round($consIndex,5))?></th>
+					</tr>
+					<tr>
+						<th colspan="<?php echo ($n+2)?>">Consistency Ratio</th>
+						<th class='text-center'><?php echo (round(($consRatio * 100),2))?> %</th>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+		<?php
+			if ($consRatio > 0.1) {
+		?>
+		<div class="alert alert-danger alert-dismissible " role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+			</button>
+			<strong>Nilai Consistency Ratio melebihi 10% !!!</strong>
+			<p>Mohon input kembali tabel perbandingan...</p>
+			</div>
+	
+			<a href='javascript:history.back()'>
+			<button class="btn btn-default">
+				<i class="fa fa-arrow-left"></i>
+					Kembali
+				</button>
+			</a>
+	
+		<?php
+			} else {
+		?>
+		@php
+			$jml = DB::table('kriteria')->where('id', '=', $kriteria_id)->count();
+		@endphp
+		@if ($jml == $kriteria_id)
+			<a href="{{ route('nilai-bobot.index') }}"><button class="btn btn-success">Lanjut Nilai Bobot<i
+				class="badge-circle badge-circle-light-secondary font-medium-1"
+				data-feather="arrow-right"></i></button></a>
+			{{-- <form action="{{ route('nilai-bobot.index') }}" method="POST">
+				@csrf
+				<input type="hidden" name="kriteria_id" value="{{ $kriteria_id }}">
+				<button class="btn btn-success">
+					<i class="fa fa-arrow-right"></i>
+					Lanjut
+				</button>
+			</form> --}}
+		@else
+			@php
+				//cek next kriteria id
+				$data = DB::table('subkriteria')->orderBy('id', 'ASC')
+				->where('id', '>', $kriteria_id)
+				->first();
+				$kriteria_id = $data->kriteria_id;
+			@endphp
+			<form action="{{ route('prosess_sub_spk') }}" method="POST">
+				@csrf
+				<input type="hidden" name="kriteria_id" value="{{ $kriteria_id }}">
+				<button class="btn btn-success">
+					<i class="fa fa-arrow-right"></i>
+						Lanjut
+				</button>
+			</form>
+		@endif
+	</div>
+</section>
+  <?php
 	}
-?>
+	?>
 
 @endsection

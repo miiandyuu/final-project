@@ -24,7 +24,6 @@ class HasilSAWController extends Controller
             $persentaseBobot = $this->persentase_bobot();
             $matrixTernormalisasi = $this->matrix_ternormalisasi($nilaiBobotGroupByAlternatifId);
         }
-        // dd($matrixTernormalisasi);
 
         return view('dashboard.hasil_saw.index', compact(['nilaiBobotGroupByAlternatifId', 'persentaseBobot', 'matrixTernormalisasi', 'checkHasEmptyData']));
     }

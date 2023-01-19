@@ -1,9 +1,9 @@
-@extends('layouts.dashboard.master')
+{{-- @extends('layouts.dashboard.master')
 
-@section('page-title', 'Matriks Ternormalisasi SAW')
+@section('page-title', 'Matriks Ternormalisasi AHP')
 
 @section('title')
-  <h4 class="text-center mb-3">Matriks Ternormalisasi (R) SAW</h4>
+  <h4 class="text-center mb-3">Matriks Ternormalisasi (R)</h4>
 @endsection
 
 @section('content')
@@ -13,16 +13,15 @@
     <section class="header-menu mb-3">
       <div class="card m-0 border shadow-none">
         <div class="card-body d-flex align-items-center justify-content-between">
-          <p class="m-0">Matriks Ternormalisasi (R) SAW</p>
-          <a href="{{ route('saw.hasil') }}"><button class="btn btn-success">Lihat Hasil Perankingan SAW</button></a>
+          <p class="m-0">Matriks Ternormalisasi (R)</p>
+          <a href="{{ route('saw.hasil') }}"><button class="btn btn-success">Lihat Hasil Perankingan</button></a>
         </div>
       </div>
     </section>
 
     <section class="header-menu mb-3">
       <div class="card m-0 border shadow-none p-3">
-        <h4 class="text-center mb-3">Bobot</h4>
-        <p><b>Note : </b>Jumlah bobot (W) haruslah 1 / 10 / 100. Di aplikasi ini menggunakan total bobot 10.</p>
+        <h4 class="text-center mb-3">Perbandingan Kriteria</h4>
         <hr>
         <div class="table-responsive">
           <table class="table table-bordered table-hover mb-0">
@@ -57,7 +56,7 @@
 
     <section class="header-menu mb-3">
       <div class="card m-0 border shadow-none p-3">
-        <h4 class="text-center mb-3">Matrix Ternormalisasi (R) SAW</h4>
+        <h4 class="text-center mb-3">Matrix Ternormalisasi (R)</h4>
         <div class="table-responsive">
           <table class="table table-bordered table-hover mb-0">
             <thead>
@@ -86,4 +85,4 @@
       </div>
     </section>
   @endif
-@endsection
+@endsection --}}

@@ -3,7 +3,7 @@
 @section('page-title', 'Hasil Perankingan SAW')
 
 @section('title')
-  <h4>Hasil Perankingan</h4>
+  <h4 class="text-center mb-3">Hasil Perankingan SAW</h4>
 @endsection
 
 @section('content')
@@ -13,15 +13,15 @@
     <section class="header-menu mb-3">
       <div class="card m-0 border shadow-none">
         <div class="card-body d-flex align-items-center justify-content-between">
-          <p class="m-0">Hasil Perangkingan</p>
-          <a href="{{ route('saw.index') }}"><button class="btn btn-success">Lihat Matriks Ternormalisasi</button></a>
+          <p class="m-0">Hasil Perangkingan SAW</p>
+          <a href="{{ route('saw.index') }}"><button class="btn btn-success">Lihat Matriks Ternormalisasi SAW</button></a>
         </div>
       </div>
     </section>
 
     <section class="header-menu mb-3">
       <div class="card m-0 border shadow-none p-3">
-        <h4 class="text-center mb-3">Hasil Perankingan</h4>
+        <h4 class="text-center mb-3">Hasil Perankingan SAW</h4>
         <div class="table-responsive">
           <table class="table table-bordered table-hover mb-0">
             <thead>

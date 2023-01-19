@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HasilAHPController;
 use App\Http\Controllers\HasilSAWController;
+use App\Http\Controllers\HasilTOPSISController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\NilaiBobotController;
@@ -88,11 +89,6 @@ Route::prefix('admin')->middleware('auth')->group(function() {
         Route::post('/hasil_sub_spk', [NilaiKepentinganSubKriteriaController::class,'hasil_sub_spk'])->name('hasil_pv_sub_spk');
     });
 
-    // Route::prefix('wp')->group(function() {
-    //     Route::get('/', [HasilWPController::class, 'index'])->name('wp.index');
-    //     Route::get('/hasil', [HasilWPController::class, 'hasil'])->name('wp.hasil');
-    // });
-
     Route::prefix('saw')->group(function() {
         Route::get('/', [HasilSAWController::class, 'index'])->name('saw.index');
         Route::get('/hasil', [HasilSAWController::class, 'hasil'])->name('saw.hasil');
@@ -104,8 +100,8 @@ Route::prefix('admin')->middleware('auth')->group(function() {
     });
 
     Route::prefix('topsis')->group(function() {
-        Route::get('/', [HasilSAWController::class, 'index'])->name('topsis.index');
-        Route::get('/hasil', [HasilSAWController::class, 'hasil'])->name('topsis.hasil');
+        Route::get('/', [HasilTOPSISController::class, 'index'])->name('topsis.index');
+        Route::get('/hasil', [HasilTOPSISController::class, 'hasil'])->name('topsis.hasil');
     });
 
     Route::prefix('user')->group(function() {
