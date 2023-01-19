@@ -20,9 +20,12 @@
           <a href="{{ route('saw.index') }}"><button class="btn btn-warning">Metode SAW <i
                 class="badge-circle badge-circle-light-secondary font-medium-1"
                 data-feather="arrow-right"></i></button></a>
-          {{-- <a href="{{ route('wp.index') }}"><button class="btn btn-warning">Metode WP <i
+          <a href="{{ route('ahp.index') }}"><button class="btn btn-warning">Metode AHP <i
                 class="badge-circle badge-circle-light-secondary font-medium-1"
-                data-feather="arrow-right"></i></button></a> --}}
+                data-feather="arrow-right"></i></button></a>
+          <a href="{{ route('topsis.index') }}"><button class="btn btn-warning">Metode TOPSIS <i
+                class="badge-circle badge-circle-light-secondary font-medium-1"
+                data-feather="arrow-right"></i></button></a>
         </div>
       </div>
     </div>

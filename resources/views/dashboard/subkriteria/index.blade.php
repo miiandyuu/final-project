@@ -32,7 +32,7 @@
       <thead>
         <tr>
           <th class="text-center">Kriteria</th>
-          <th class="text-center">Range</th>
+          <th class="text-center">Nama Sub Kriteria</th>
           <th class="text-center">Nilai</th>
           @can('is_staff_or_admin')
           <th class="text-center">Aksi</th>
@@ -43,7 +43,7 @@
         @foreach ($allSubkriteria as $subkriteria)
           <tr>
             <td>{{ strtoupper($subkriteria->name) }}</td>
-            <td>{{ $subkriteria->range }}</td>
+            <td>{{ $subkriteria->nama_sub_kriteria }}</td>
             <td>{{ $subkriteria->nilai }}</td>
             @can('is_staff_or_admin')
             <td>

@@ -25,8 +25,8 @@
             <li><a href="{{ route('kriteria.index') }}">Kriteria</a></li>
             <li><a href="{{ route('subkriteria.index') }}">Subkriteria</a></li>
             <li><a href="{{ route('alternatif.index') }}">Alternatif</a></li>
-            <li><a href="{{ route('nilai-bobot.index') }}">Nilai Bobot</a></li>
             <li><a href="{{ route('nilai-kepentingan-kriteria.index') }}">Nilai Kepentingan Kriteria</a></li>
+            <li><a href="{{ route('nilai-bobot.index') }}">Nilai Bobot</a></li>
           </ul>
         </li>
         
@@ -42,25 +42,14 @@
           </ul>
         </li>
 
-        {{-- <li class="sidebar-item has-sub">
-          <a href="#" class='sidebar-link'>
-            <i data-feather="package" width="20"></i>
-            <span>Metode WP</span>
-          </a>
-          <ul class="submenu ">
-            <li><a href="{{ route('wp.index') }}">Vektor S dan V</a></li>
-            <li><a href="{{ route('wp.hasil') }}">Hasil</a></li>
-          </ul>
-        </li> --}}
-
         <li class="sidebar-item has-sub">
           <a href="#" class='sidebar-link'>
             <i data-feather="package" width="20"></i>
             <span>Metode AHP</span>
           </a>
           <ul class="submenu ">
-            <li><a href="{{ route('saw.index') }}">Matriks Ternormalisasi (R)</a></li>
-            <li><a href="{{ route('saw.hasil') }}">Hasil</a></li>
+            {{-- <li><a href="{{ route('ahp.index') }}">Matriks Ternormalisasi (R)</a></li> --}}
+            <li><a href="{{ route('ahp.hasil') }}">Hasil</a></li>
           </ul>
         </li>
 
@@ -70,8 +59,8 @@
             <span>Metode TOPSIS</span>
           </a>
           <ul class="submenu ">
-            <li><a href="{{ route('saw.index') }}">Matriks Ternormalisasi (R)</a></li>
-            <li><a href="{{ route('saw.hasil') }}">Hasil</a></li>
+            <li><a href="{{ route('topsis.index') }}">Matriks Ternormalisasi (R)</a></li>
+            <li><a href="{{ route('topsis.hasil') }}">Hasil</a></li>
           </ul>
         </li>
 

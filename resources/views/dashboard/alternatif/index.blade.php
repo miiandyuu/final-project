@@ -17,7 +17,7 @@
         <p class="m-0">Halaman Alternatif</p>
         <div>
           <a href="{{ route('alternatif.create') }}"><button class="btn btn-success">Pilih Alternatif</button></a>
-          <a href="{{ route('nilai-bobot.index') }}"><button class="btn btn-warning">Lanjut Nilai Bobot <i
+          <a href="{{ route('nilai-kepentingan-kriteria.index') }}"><button class="btn btn-warning">Lanjut Nilai Kepentingan Kriteria<i
             class="badge-circle badge-circle-light-secondary font-medium-1"
             data-feather="arrow-right"></i></button></a>
         </div>

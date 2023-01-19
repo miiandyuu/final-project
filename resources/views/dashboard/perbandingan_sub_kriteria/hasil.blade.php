@@ -182,14 +182,17 @@ for ($i = 0; $i <= ($n-1); $i++) {
 	$jml = DB::table('kriteria')->where('id', '=', $kriteria_id)->count();
 @endphp
 @if ($jml == $kriteria_id)
-    <form action="{{ route('nilai_alternatif') }}" method="POST">
+	<a href="{{ route('nilai-bobot.index') }}"><button class="btn btn-success">Lanjut Nilai Bobot<i
+		class="badge-circle badge-circle-light-secondary font-medium-1"
+		data-feather="arrow-right"></i></button></a>
+    {{-- <form action="{{ route('nilai-bobot.index') }}" method="POST">
         @csrf
         <input type="hidden" name="kriteria_id" value="{{ $kriteria_id }}">
         <button class="btn btn-success">
             <i class="fa fa-arrow-right"></i>
             Lanjut
         </button>
-    </form>
+    </form> --}}
 @else
     @php
         //cek next kriteria id

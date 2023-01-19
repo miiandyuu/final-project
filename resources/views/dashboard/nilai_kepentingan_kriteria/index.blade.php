@@ -12,9 +12,22 @@
 
 @section('content')
 <div class="container-fluid">
+    <section class="header-menu">
+        <div class="card m-0 border border-bottom-0 shadow-none">
+          <div class="card-body d-flex align-items-center justify-content-between">
+            <p class="m-0">Halaman Perbandingan Kriteria</p>
+            <div>
+              <a href="{{ route('nilai-bobot.index') }}"><button class="btn btn-warning">Lanjut Nilai Bobot<i
+                class="badge-circle badge-circle-light-secondary font-medium-1"
+                data-feather="arrow-right"></i></button></a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <br>
     <div class="row">
         <div class="col-sm-6">
-            <div class="card card-table" style="overflow-x: scroll; ">
+            <div class="card card-table" style="overflow-x: scroll; box-shadow: none" >
                 <div class="card-body booking_card">
                     <form action="{{ route('hasil_pv_alternatif') }}" method="POST">
                         @csrf
@@ -78,7 +91,7 @@
         </div>
 
         <div class="col-sm-6">
-            <div class="card card-table">
+            <div class="card card-table" style="box-shadow: none">
                 <div class="card-body booking_card">
                     <div class="card-body">
                         <div class="table-responsive">

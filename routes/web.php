@@ -4,8 +4,8 @@ use App\Http\Controllers\AlternatifController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HasilAHPController;
 use App\Http\Controllers\HasilSAWController;
-use App\Http\Controllers\HasilWPController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KriteriaController;
 use App\Http\Controllers\NilaiBobotController;
@@ -88,10 +88,10 @@ Route::prefix('admin')->middleware('auth')->group(function() {
         Route::post('/hasil_sub_spk', [NilaiKepentinganSubKriteriaController::class,'hasil_sub_spk'])->name('hasil_pv_sub_spk');
     });
 
-    Route::prefix('wp')->group(function() {
-        Route::get('/', [HasilWPController::class, 'index'])->name('wp.index');
-        Route::get('/hasil', [HasilWPController::class, 'hasil'])->name('wp.hasil');
-    });
+    // Route::prefix('wp')->group(function() {
+    //     Route::get('/', [HasilWPController::class, 'index'])->name('wp.index');
+    //     Route::get('/hasil', [HasilWPController::class, 'hasil'])->name('wp.hasil');
+    // });
 
     Route::prefix('saw')->group(function() {
         Route::get('/', [HasilSAWController::class, 'index'])->name('saw.index');
@@ -99,8 +99,13 @@ Route::prefix('admin')->middleware('auth')->group(function() {
     });
 
     Route::prefix('ahp')->group(function() {
-        Route::get('/', [HasilSAWController::class, 'index'])->name('ahp.index');
-        Route::get('/hasil', [HasilSAWController::class, 'hasil'])->name('ahp.hasil');
+        Route::get('/', [HasilAHPController::class, 'index'])->name('ahp.index');
+        Route::get('/hasil', [HasilAHPController::class, 'hasil'])->name('ahp.hasil');
+    });
+
+    Route::prefix('topsis')->group(function() {
+        Route::get('/', [HasilSAWController::class, 'index'])->name('topsis.index');
+        Route::get('/hasil', [HasilSAWController::class, 'hasil'])->name('topsis.hasil');
     });
 
     Route::prefix('user')->group(function() {
