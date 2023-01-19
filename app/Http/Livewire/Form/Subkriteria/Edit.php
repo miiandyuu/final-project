@@ -37,7 +37,7 @@ class Edit extends Component
         $selectedSubkriteria = DB::table('subkriteria')->where('id', '=', $id)->orderBy('nilai')->get();
         foreach ($selectedSubkriteria as $item) {
             if ($item->id == $id) {
-                $this->rangeForm = $item->range;
+                $this->rangeForm = $item->nama_sub_kriteria;
                 $this->nilaiForm = $item->nilai;
             }
         }

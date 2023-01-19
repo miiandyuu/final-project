@@ -5,7 +5,7 @@
     @csrf
     <div class="form-body">
       <div class="form-group col-12">
-        <label for="range">Range</label>
+        <label for="range">Nama Sub Kriteria</label>
         <input type="text" class="form-control @error('rangeForm') is-invalid @enderror" name="rangeForm"
           wire:model="rangeForm" required {{ $isFormActive ? '' : 'disabled' }} value="{{ $rangeForm }}">
         @error('rangeForm')
@@ -46,9 +46,9 @@
                   <div class="col-10">
                     <div class="row">
                       <div class="form-group col-12 col-md-6">
-                        <label for="range">Range</label>
+                        <label for="range">Nama Sub Kriteria</label>
                         <input type="text" class="form-control" name="range" readonly
-                          value="{{ $subkriteria->range }}">
+                          value="{{ $subkriteria->nama_sub_kriteria }}">
                       </div>
                       <div class="form-group col-12 col-md-6">
                         <label for="nilai">Nilai</label>

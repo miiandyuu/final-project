@@ -59,7 +59,7 @@
                                         @if ($item->kriteria_id == $subkriteria->kriteria_id)
                                           <option value="{{ $subkriteria->nilai }}"
                                             {{ $item->nilai == $subkriteria->nilai ? 'selected' : '' }}>
-                                            {{ $subkriteria->range }}</option>
+                                            {{ $subkriteria->nama_sub_kriteria }}</option>
                                         @endif
                                       @endforeach
                                     </select>

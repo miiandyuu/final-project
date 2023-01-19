@@ -9,6 +9,7 @@ use App\Http\Controllers\HasilSAWController;
 use App\Http\Controllers\HasilTOPSISController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KriteriaController;
+use App\Http\Controllers\NilaiAlternatifController;
 use App\Http\Controllers\NilaiBobotController;
 use App\Http\Controllers\NilaiKepentinganKriteriaController;
 use App\Http\Controllers\NilaiKepentinganSubKriteriaController;
@@ -87,6 +88,11 @@ Route::prefix('admin')->middleware('auth')->group(function() {
         
         Route::post('/prosess_sub_spk', [NilaiKepentinganSubKriteriaController::class,'prosess_sub_spk'])->name('prosess_sub_spk');
         Route::post('/hasil_sub_spk', [NilaiKepentinganSubKriteriaController::class,'hasil_sub_spk'])->name('hasil_pv_sub_spk');
+
+        Route::post('/hasil', [HasilAHPController::class, 'index'])->name('hasil_spk');
+
+        Route::post('/nilai_alternatif', [NilaiAlternatifController::class, 'index'])->name('nilai_alternatif');
+
     });
 
     Route::prefix('saw')->group(function() {
@@ -95,7 +101,7 @@ Route::prefix('admin')->middleware('auth')->group(function() {
     });
 
     Route::prefix('ahp')->group(function() {
-        Route::get('/', [HasilAHPController::class, 'index'])->name('ahp.index');
+        // Route::get('/', [HasilAHPController::class, 'index'])->name('ahp.index');
         Route::get('/hasil', [HasilAHPController::class, 'hasil'])->name('ahp.hasil');
     });
 

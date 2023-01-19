@@ -92,7 +92,7 @@
                                       <option value="" selected>Pilih Nilai...</option>
                                       @foreach ($allSubkriteria as $subkriteria)
                                         @if ($kriteria->id == $subkriteria->kriteria_id)
-                                          <option value="{{ $subkriteria->nilai }}">{{ $subkriteria->range }}</option>
+                                          <option value="{{ $subkriteria->nilai }}">{{ $subkriteria->nama_sub_kriteria }}</option>
                                         @endif
                                       @endforeach
                                     </select>
