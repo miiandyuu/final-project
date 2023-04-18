@@ -1,5 +1,15 @@
-@extends('layouts.master')
-@section('title', 'Nilai Alternatif')
+@extends('layouts.dashboard.master')
+
+@section('page-title', 'Nilai Alternatif')
+
+@section('notification')
+  @include('layouts.partial.notification')
+@endsection
+
+@section('title')
+  <h4 class="text-center mb-3">Nilai Alternatif</h4>
+@endsection
+
 @section('content')
 @php
     $query = DB::select("SELECT a1.kode_database,a1.code, a1.id as alternatif_id
@@ -12,27 +22,22 @@
     ");
 
 @endphp
-<div class="row">
-    <div class="col-sm-12">
-        <div class="card card-table">
-            <div class="card-body booking_card">
-                <div class="card-body">
-                    <div class="table-responsive">
-
-                        <h5>Inputkan Nilai Alternatif !!!</h5>
-                        <form action="{{ route('hasil_spk') }}" method="POST">
-                        @csrf
-                        <table class="table table-bordered" >
-                            <thead>
-                                <tr>
-                                    <th>Nama Alternatif</th>
-                                    @foreach ($data_kriteria as $b )
-                                        <th>{{ $b->name }}</th>
-                                    @endforeach
-                                </tr>
-                            </thead>
-
-                            @foreach ($query as $a)
+<section class="header-menu mb-3">
+    <div class="card m-0 border shadow-none p-3">
+      <h4 class="text-center mb-3">Inputkan Nilai Alternatif !</h4>
+      <div class="table-responsive">
+        <form action="{{ route('hasil_spk') }}" method="POST">
+         @csrf
+            <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Nama Alternatif</th>
+                    @foreach ($data_kriteria as $b )
+                        <th>{{ $b->name }}</th>
+                    @endforeach
+                </tr>
+            </thead>
+            @foreach ($query as $a)
                                 <tr>
                                     <td>{{ $a->kode_database }}</td>
                                     {{-- <input type="hidden" name="jenis_bansos_id" value="{{ $jenis_bansos_id }}" class="form-control"> --}}
@@ -55,15 +60,10 @@
                                     @endforeach
                                 </tr>
                             @endforeach
-                        </table>
-                        <button class="btn btn-sm btn-primary"><i class="fa fa-save"></i> Simpan</button>
-                    </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+            </table>
+            <button class="btn btn-sm btn-primary"><i class="fa fa-save"></i> Simpan</button>
+        </form>
+      </div>
     </div>
-</div>
-
-
+  </section>
 @endsection

@@ -1,0 +1,98 @@
+' @startuml "Activity Diagram Kriteria Skripsi"
+' skinparam style strictuml
+' |Aplikasi|
+' start
+' :Memilih Menambahkan Kriteria;
+' |Pengguna|
+' :Mengisi kolom nama, kode database,
+' tipe data, bobot;
+' |Server|
+' :Menambahkan data kriteria pada database;
+' |Aplikasi|
+' :Pengguna Mendapatkan informasi
+' kriteria yang dipilih;
+' stop
+' @enduml
+
+' @startuml "Activity Diagram Sub-Kriteria Skripsi"
+' skinparam style strictuml
+' |Aplikasi|
+' start
+' :Memilih Menambahkan Sub-Kriteria;
+' |Pengguna|
+' :Memilih Kriteria yang akan dibuat Sub-Kriterianya;
+' :Menentukan nama sub-kriteria dan
+' bobot nilai dari sub-kriteria tersebut;
+' |Server|
+' :Menambahkan data sub-kriteria pada database;
+' |Aplikasi|
+' :Pengguna Mendapatkan informasi
+' sub-kriteria yang dibuat;
+' stop
+' @enduml
+
+' @startuml "Activity Diagram Alternatif Skripsi"
+' skinparam style strictuml
+' |Aplikasi|
+' start
+' :Memilih Alternatif;
+' |Pengguna|
+' :Memilih alternatif;
+' |Server|
+' :Membuat tabel baru yang berisi
+' alternatif yang dipilih;
+' |Aplikasi|
+' :Pengguna Mendapatkan informasi
+' alternatif yang dipilih;
+' stop
+' @enduml
+
+' @startuml "Activity Diagram Nilai Kepentingan Kriteria Skripsi"
+' skinparam style strictuml
+' |Aplikasi|
+' start
+' :Memilih Nilai Kepentingan Kriteria;
+' :Menampilkan kolom perbandingan antar kriteria;
+' |Pengguna|
+' :Memasukkan nilai kepentingan
+' antar tiap kriteria;
+' |Server|
+' :Menyimpan nilai kepentingan antar kriteria;
+' |Aplikasi|
+' :Menampilkan kolom perbandingan antar sub-kriteria;
+' |Pengguna|
+' :Memasukkan nilai kepentingan
+' antar tiap sub-kriteria;
+' |Server|
+' :Menyimpan nilai kepentingan antar sub-kriteria;
+' stop
+' @enduml
+
+' @startuml "Activity Diagram Nilai Alternatif Skripsi"
+' skinparam style strictuml
+' |Aplikasi|
+' start
+' :Menampilkan nilai alternatif
+' untuk setiap sub-kriteria;
+' |Pengguna|
+' :Memasukkan nilai alternatif sesuai
+' dengan sub-kriteria yang telah ditentukan;
+' |Server|
+' :Menyimpan nilai alternatif;
+' |Aplikasi|
+' :Menampilkan tabel nilai alternatif;
+' stop
+' @enduml
+
+@startuml "Activity Diagram Hasil Skripsi"
+skinparam style strictuml
+|Aplikasi|
+start
+:Memilih Matriks Ternormalisasi (R);
+|Server|
+:Menghitung matriks normalisasi
+berdasarkan metode;
+|Aplikasi|
+:Menampilkan nilai matriks ternormalisasi;
+stop
+@enduml

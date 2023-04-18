@@ -1,0 +1,14 @@
+@startuml "KP Flowchart"
+start
+    :Scraping data;
+    :Menganalisa data yang di dapatkan;
+    :Membuat index pada data;
+    :Memasukkan data ke server Algolia;
+    partition "Mesin Pencari"
+    repeat :User Memasukkan Query Pencarian;
+    backward :Menampilkan tampilan tidak ada pada database;
+    repeat while (input query == index data di database) is (NO)
+    ->YES;
+    :Menampilkan tampilan hasil pencarian;
+end
+@enduml

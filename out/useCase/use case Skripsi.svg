@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="635px" preserveAspectRatio="none" style="width:842px;height:635px;background:#FFFFFF;" version="1.1" viewBox="0 0 842 635" width="842px" zoomAndPan="magnify"><defs/><g><g id="elem_K"><ellipse cx="207.811" cy="21.4535" fill="#F1F1F1" rx="43.311" ry="15.4535" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="45" x="184.8228" y="25.3329">Kriteria</text></g><g id="elem_S"><ellipse cx="207.841" cy="87.6182" fill="#F1F1F1" rx="65.341" ry="15.6182" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="167.341" y="92.1348">Sub-Kriteria</text></g><g id="elem_A"><ellipse cx="207.8032" cy="153.5087" fill="#F1F1F1" rx="51.3032" ry="15.5087" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="56" x="176.8032" y="158.0253">Alternatif</text></g><g id="elem_NKK"><ellipse cx="208.1681" cy="226.7336" fill="#F1F1F1" rx="99.1681" ry="22.2336" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="159" x="128.6681" y="230.4621">Nilai Kepentingan Kriteria</text></g><g id="elem_NA"><ellipse cx="207.957" cy="300.2914" fill="#F1F1F1" rx="69.457" ry="16.2914" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="161.957" y="304.808">Nilai Alternatif</text></g><g id="elem_SAW"><ellipse cx="207.9382" cy="373.5876" fill="#F1F1F1" rx="93.4382" ry="21.0876" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="146" x="134.9382" y="377.3162">Hasil Perhitungan SAW</text></g><g id="elem_AHP"><ellipse cx="208.1965" cy="450.7393" fill="#F1F1F1" rx="91.6965" ry="20.7393" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="142" x="137.1965" y="454.4678">Hasil Perhitungan AHP</text></g><g id="elem_TOPSIS"><ellipse cx="207.8449" cy="529.269" fill="#F1F1F1" rx="101.8449" ry="22.769" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="165" x="125.3449" y="532.9975">Hasil Perhitungan TOPSIS</text></g><g id="elem_PP"><ellipse cx="208.1309" cy="608.3262" fill="#F1F1F1" rx="92.1309" ry="20.8262" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="143" x="136.6309" y="612.0547">Pengaturan Pengguna</text></g><g id="elem_MSAW"><ellipse cx="624.8803" cy="329.5761" fill="#F1F1F1" rx="203.3803" ry="43.0761" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="348" x="450.8803" y="324.4999">Menampilkan proses perhitungan dengan Metode SAW</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="237" x="506.3803" y="342.1093">Menampilkan hasil akhir metode SAW</text></g><g id="elem_MAHP"><ellipse cx="625.0856" cy="450.7171" fill="#F1F1F1" rx="201.5856" ry="42.7171" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="344" x="453.0856" y="445.641">Menampilkan proses perhitungan dengan Metode AHP</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="233" x="508.5856" y="463.2503">Menampilkan hasil akhir metode AHP</text></g><g id="elem_MTOPSIS"><ellipse cx="624.9557" cy="573.2911" fill="#F1F1F1" rx="211.9557" ry="44.7911" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="367" x="441.4557" y="568.215">Menampilkan proses perhitungan dengan Metode TOPSIS</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="256" x="496.9557" y="585.8244">Menampilkan hasil akhir metode TOPSIS</text></g><!--MD5=[97ab183161fd5d1db7fba7485cf76add]
+entity Admin--><g id="elem_Admin"><ellipse cx="25.5" cy="270" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M25.5,278 L25.5,305 M12.5,286 L38.5,286 M25.5,305 L12.5,320 M25.5,305 L38.5,320 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39" x="6" y="336.0332">Admin</text></g><!--MD5=[8bd736328a0b280dccb7736b9cae1d1c]
+link Admin to K--><g id="link_Admin_K"><path d="M27.89,261.1 C32.01,206.68 47.65,109.07 106,54.5 C121.02,40.45 142.12,32.38 161.16,27.74 " fill="none" id="Admin-to-K" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="166.46,26.52,156.7947,24.6275,161.5859,27.6349,158.5785,32.4261,166.46,26.52" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[c5304b23c26d5b3a9b1522d4b83dd34a]
+link Admin to S--><g id="link_Admin_S"><path d="M34,261.28 C43.77,220.62 64.7,157.86 106,120.5 C117.8,109.83 133.11,102.6 148.23,97.71 " fill="none" id="Admin-to-S" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="153.35,96.14,143.5719,94.9616,148.5708,97.6094,145.923,102.6083,153.35,96.14" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[61e3f4b53a44675f4229b845f244dd0a]
+link Admin to A--><g id="link_Admin_A"><path d="M45.01,262.01 C58.71,237.24 79.56,206.14 106,186.5 C121.3,175.14 140.69,167.57 158.39,162.59 " fill="none" id="Admin-to-A" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="163.33,161.25,153.5954,159.7541,158.5055,162.5632,155.6965,167.4733,163.33,161.25" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[1efb298cb56ce3e0cae601b355d20a3f]
+link Admin to NKK--><g id="link_Admin_NKK"><path d="M45.07,289.74 C53.98,284.79 64.88,279.02 75,274.5 C98.07,264.19 124.09,254.36 146.9,246.31 " fill="none" id="Admin-to-NKK" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="151.71,244.62,141.8936,243.8217,146.9914,246.2737,144.5394,251.3715,151.71,244.62" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[387396b15e4ce6af855cb5bdffd2025a]
+link Admin to NA--><g id="link_Admin_NA"><path d="M45.14,300.5 C66,300.5 101.11,300.5 133.31,300.5 " fill="none" id="Admin-to-NA" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="138.45,300.5,129.45,296.5,133.45,300.5,129.45,304.5,138.45,300.5" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[926289b74166a6117035067ca9de00b2]
+link Admin to SAW--><g id="link_Admin_SAW"><path d="M45.05,308.66 C61.12,315.66 85,325.96 106,334.5 C121.7,340.89 138.87,347.61 154.53,353.65 " fill="none" id="Admin-to-SAW" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="159.34,355.5,152.3873,348.5244,154.6762,353.6974,149.5032,355.9864,159.34,355.5" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[25c38b0469a6c7ca3628d183edbeab86]
+link SAW to MSAW--><g id="link_SAW_MSAW"><path d="M292.98,364.6 C334.77,360.17 387.07,354.62 437.67,349.26 " fill="none" id="SAW-to-MSAW" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="442.88,348.7,433.5075,345.674,437.908,349.2286,434.3533,353.6291,442.88,348.7" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="41" x="341" y="351.9951">include</text></g><!--MD5=[1efbb8b851ea04ecd45557fd2fd6e383]
+link Admin to AHP--><g id="link_Admin_AHP"><path d="M45.12,336.74 C59.06,360.78 80.14,391.47 106,411.5 C117.32,420.26 130.84,427.26 144.25,432.77 " fill="none" id="Admin-to-AHP" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="149.18,434.74,142.2906,427.7018,144.5327,432.8954,139.3392,435.1375,149.18,434.74" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[bec41a858d713b31528a091aea6f2eb1]
+link AHP to MAHP--><g id="link_AHP_MAHP"><path d="M299.56,450.5 C334.74,450.5 376.58,450.5 418.32,450.5 " fill="none" id="AHP-to-MAHP" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="423.4,450.5,414.4,446.5,418.4,450.5,414.4,454.5,423.4,450.5" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="41" x="341" y="446.9951">include</text></g><!--MD5=[89adc002d85b0929023dfa80dd6926ef]
+link Admin to TOPSIS--><g id="link_Admin_TOPSIS"><path d="M33.8,339.7 C43.5,381.62 64.48,447.58 106,488.5 C114.92,497.3 125.99,504.28 137.49,509.81 " fill="none" id="Admin-to-TOPSIS" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="142.09,511.94,135.599,504.5328,137.5515,509.842,132.2422,511.7944,142.09,511.94" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[44e4a2d75ec9885a8a6034623118f76b]
+link TOPSIS to MTOPSIS--><g id="link_TOPSIS_MTOPSIS"><path d="M300.59,539.21 C338.74,543.26 384.59,548.12 429.62,552.89 " fill="none" id="TOPSIS-to-MTOPSIS" style="stroke:#181818;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#181818" points="434.82,553.44,426.2919,548.5135,429.8479,552.9129,425.4485,556.4689,434.82,553.44" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="41" x="341" y="539.9951">include</text></g><!--MD5=[25b0ee549f5c70f1102c605b069daf5a]
+link Admin to PP--><g id="link_Admin_PP"><path d="M27.47,339.76 C30.99,397.56 45.8,505.7 106,570.5 C114.5,579.65 125.42,586.61 136.92,591.9 " fill="none" id="Admin-to-PP" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="141.53,593.92,134.8986,586.6382,136.9522,591.9092,131.6812,593.9628,141.53,593.92" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[87cf955f908f6635e19e7fdd0d242410]
+@startuml "use case Skripsi"
+left to right direction
+
+"Kriteria" as (K)
+"Sub-Kriteria" as (S)
+"Alternatif" as (A)
+"Nilai Kepentingan Kriteria" as (NKK)
+"Nilai Alternatif" as (NA)
+"Hasil Perhitungan SAW" as (SAW)
+"Hasil Perhitungan AHP" as (AHP)
+"Hasil Perhitungan TOPSIS" as (TOPSIS)
+"Pengaturan Pengguna" as (PP)
+
+usecase MSAW as "Menampilkan proses perhitungan dengan Metode SAW
+Menampilkan hasil akhir metode SAW"
+usecase MAHP as "Menampilkan proses perhitungan dengan Metode AHP
+Menampilkan hasil akhir metode AHP"
+usecase MTOPSIS as "Menampilkan proses perhitungan dengan Metode TOPSIS
+Menampilkan hasil akhir metode TOPSIS"
+
+
+
+:Admin: - -> (K)
+:Admin: - -> (S)
+:Admin: - -> (A)
+:Admin: - -> (NKK)
+:Admin: - -> (NA)
+:Admin: - -> (SAW)
+(SAW) ..> (MSAW) : include
+:Admin: - -> (AHP)
+(AHP) ..> (MAHP) : include
+:Admin: - -> (TOPSIS)
+(TOPSIS) ..> (MTOPSIS) : include
+:Admin: - -> (PP)
+
+@endumls
+
+PlantUML version 1.2022.7(Tue Aug 23 00:01:30 WIB 2022)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: US
+--></g></svg>

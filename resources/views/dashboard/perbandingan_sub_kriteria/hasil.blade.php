@@ -13,6 +13,7 @@
 @section('content')
 @php
 $kriteria_id =$_POST['kriteria_id'];
+// dd($kriteria_id);
 
 $n = DB::table("subkriteria")
        ->where('kriteria_id', '=', $kriteria_id)
@@ -180,12 +181,9 @@ for ($i = 0; $i <= ($n-1); $i++) {
 			} else {
 		?>
 		@php
-			$jml = DB::table('kriteria')->where('id', '=', $kriteria_id)->count();
+			$jml = DB::table('kriteria')->count();
 		@endphp
 		@if ($jml == $kriteria_id)
-			{{-- <a href="{{ route('nilai-bobot.index') }}"><button class="btn btn-success">Lanjut Nilai Bobot<i
-				class="badge-circle badge-circle-light-secondary font-medium-1"
-				data-feather="arrow-right"></i></button></a> --}}
 			<form action="{{ route('nilai_alternatif') }}" method="POST">
 				@csrf
 				<input type="hidden" name="kriteria_id" value="{{ $kriteria_id }}">
@@ -197,10 +195,10 @@ for ($i = 0; $i <= ($n-1); $i++) {
 		@else
 			@php
 				//cek next kriteria id
-				$data = DB::table('subkriteria')->orderBy('id', 'ASC')
+				$data = DB::table('kriteria')->orderBy('id', 'ASC')
 				->where('id', '>', $kriteria_id)
 				->first();
-				$kriteria_id = $data->kriteria_id;
+				$kriteria_id = $data->id;
 			@endphp
 			<form action="{{ route('prosess_sub_spk') }}" method="POST">
 				@csrf

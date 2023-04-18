@@ -1,0 +1,16 @@
+@startuml "Skripsi1"
+start
+    :Mendeskripsikan dan Menganalisa Masalah;
+    :Studi Literatur;
+    repeat :Perancangan dan Pembuatan Algoritma SPK;
+    :Pengujian Metode-Metode pada Sistem;
+    ' backward :Menampilkan tampilan tidak ada pada database;
+    repeat while (Apakah Setiap Metode berjalan dengan baik?) is (NO)
+    ->YES;
+    repeat :Perancangan dan Pembuatan Sistem Informasi;
+    :Pengujian Sistem Informasi;
+    repeat while (Apakah Sistem Informasi berjalan dengan baik) is (NO)
+    ->YES;
+    :Analisis hasil;
+end
+@enduml

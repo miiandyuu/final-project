@@ -1,0 +1,89 @@
+@startuml "use case Skripsi"
+' left to right direction
+' !pragma layout smetana
+
+
+
+
+
+' usecase add5 as "add"
+actor :Admin: as Admin
+
+rectangle "Sistem Pendukung Keputusan" {
+"Mengelola data Nilai Alternatif" as (NA)
+"Melihat Hasil Perhitungan SAW" as (SAW)
+"Melihat Hasil Perhitungan AHP" as (AHP)
+"Melihat Hasil Perhitungan TOPSIS" as (TOPSIS)
+"Logout" as (Logout)
+
+:Admin: --> (NA)
+(NA) ..> (Login) : include
+(add5) ..> (NA) : extend
+
+:Admin: --> (SAW)
+(SAW) ..> (Login) : include
+:Admin: --> (AHP)
+(AHP) ..> (Login) : include
+:Admin: --> (TOPSIS)
+(TOPSIS) ..> (Login) : include
+:Admin: --> (Logout)
+(Logout) ..> (Login) : include
+}
+
+
+' rectangle "Sistem Pendukung Keputusan" {
+' "Mengelola data kriteria" as (K)
+' "Mengelola data sub-kriteria" as (S)
+' "Mengelola data alternatif" as (A)
+' "Mengelola data Nilai Kepentingan Kriteria" as (NKK)
+
+' Admin --> (K)
+' (K) .d.> (Login) : include
+' (add1) ..> (K) : extend
+' (save1) ..> (K) : extend
+' (delete1) ..> (K) : extend
+' (edit1) ..> (K) : extend
+
+' :Admin: --> (S)
+' (S) ..> (Login) : include
+' (add2) ..> (S) : extend
+' (save2) ..> (S) : extend
+' (delete2) ..> (S) : extend
+' (edit2) ..> (S) : extend
+
+' :Admin: --> (A)
+' (A) ..> (Login) : include
+' (add3) ..> (A) : extend
+' (save3) ..> (A) : extend
+' (delete3) ..> (A) : extend
+' (edit3) ..> (A) : extend
+
+' :Admin: --> (NKK)
+' (NKK) ..> (Login) : include
+' (add4) ..> (NKK) : extend
+
+' usecase Login as "Login"
+
+' usecase add1 as "add"
+' usecase save1 as "save"
+' usecase delete1 as "delete"
+' usecase edit1 as "edit"
+
+' usecase add2 as "add"
+' usecase save2 as "save"
+' usecase delete2 as "delete"
+' usecase edit2 as "edit"
+
+' usecase add3 as "add"
+' usecase save3 as "save"
+' usecase delete3 as "delete"
+' usecase edit3 as "edit"
+
+' usecase add4 as "add"
+' }
+
+
+
+
+
+@endumls

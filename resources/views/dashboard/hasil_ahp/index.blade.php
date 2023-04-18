@@ -9,7 +9,7 @@
 @section('content')
 <section class="header-menu mb-3">
     <div class="card m-0 border shadow-none p-3">
-      <h4 class="text-center mb-3">Hasil Perankingan SAW</h4>
+      <h4 class="text-center mb-3">Hasil Perankingan AHP</h4>
       <div class="table-responsive">
         @php
             $list = DB::select("SELECT rangking_ahp.*,alternatif.kode_database From rangking_ahp join alternatif on alternatif.id = rangking_ahp.alternatif_id order by nilai_prioritas DESC");

@@ -21,7 +21,7 @@
     </div>
 
     <div class="footer pt-32">
-      <p class="text-center">2022 &copy; Galih Redha Saputra</p>
+      <p class="m-0">Skripsi Ricky Aston</p>
     </div>
   </div>
 </body>

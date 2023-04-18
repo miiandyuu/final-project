@@ -90,8 +90,8 @@ class TOPSIS
             }
         }
         foreach ($temp as $key => $val) {
-            $max = max($val);
-            $min = min($val);
+            $max = min($val);
+            $min = max($val);
             if ($this->atribut[$key] == 'benefit') {
                 $this->solusi_ideal['positif'][$key] = $max;
                 $this->solusi_ideal['negatif'][$key] = $min;

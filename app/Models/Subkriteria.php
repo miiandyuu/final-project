@@ -11,7 +11,7 @@ class Subkriteria extends Model
 
     protected $table = 'subkriteria';
 
-    protected $fillable = ['range', 'nilai', 'kriteria_id'];
+    protected $fillable = ['nama_sub_kriteria', 'nilai', 'kriteria_id'];
 
     public function kriteria()
     {

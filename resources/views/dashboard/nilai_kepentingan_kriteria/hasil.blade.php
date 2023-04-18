@@ -12,11 +12,6 @@
 
 @section('content')
 @php
-
-foreach ($allKriteria as $kriteria) {
-    $choices[] = $kriteria->kode_database;
-}
-
 $matrik = array();
 $urut 	= 0;
 for ($x=0; $x <= ($criteriaCount-2) ; $x++) {

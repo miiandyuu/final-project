@@ -37,7 +37,7 @@
                     <div class="col-12">
                       <div class="form-group">
                         <label for="alternatif">Alternatif</label>
-                        <input type="hidden" name="alternatif" id="alternatif"
+                        <input name="alternatif" id="alternatif"
                           value="{{ $selectedAlternatif[0]->alternatif_id }}">
                         @error('alternatif')
                           @include('layouts.partial.invalid-form', ['message' => $message])
@@ -49,14 +49,14 @@
                           <div class="card m-0 border shadow-none">
                             <div class="card-content">
                               <div class="card-body">
-                                @foreach ($selectedAlternatif as $key => $item)
-                                  <input type="hidden" name="kriteria[]" value={{ $item->kriteria_id }}>
+                                @foreach ($allKriteria as $key => $item)
+                                  <input type="hidden" name="kriteria[]" value={{ $item->id }}>
                                   <div class="form-group">
-                                    <label for="nilai">{{ strtoupper($item->kriteria_name) }}</label>
+                                    <label for="nilai">{{ strtoupper($item->name) }}</label>
                                     <select class="form-select @error('nilai.' . $key) is-invalid @enderror"
                                       id="nilai" name="nilai[]" required>
                                       @foreach ($allSubkriteria as $subkriteria)
-                                        @if ($item->kriteria_id == $subkriteria->kriteria_id)
+                                        @if ($item->id == $subkriteria->kriteria_id)
                                           <option value="{{ $subkriteria->nilai }}"
                                             {{ $item->nilai == $subkriteria->nilai ? 'selected' : '' }}>
                                             {{ $subkriteria->nama_sub_kriteria }}</option>

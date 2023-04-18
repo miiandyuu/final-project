@@ -1,0 +1,75 @@
+@startuml Sequence Diagram Kriteria
+actor Users
+activate Frontend
+control "Kriteria Controler"
+database Database
+
+' Users -> Frontend : Menekan tombol Kriteria\npada sub-menu dashboard
+' Frontend -> "Kriteria Controler" : GET halaman Kriteria
+' "Kriteria Controler"-> Database : index()
+' "Kriteria Controler" <-[#Gray]- Database : return
+' "Kriteria Controler" -[#Gray]-> Frontend : return the response
+' Frontend -[#Gray]-> Users : Menampilkan Kriteria yang\nsudah dipilih
+
+' Users -> Frontend : Menekan tombol "Tambah Kriteria"
+' Frontend -> "Kriteria Controler" : GET halaman menambahkan kriteria baru
+' "Kriteria Controler"-> Database : create()
+' "Kriteria Controler" <-[#Gray]- Database : return
+' "Kriteria Controler" -[#Gray]-> Frontend : return the response
+' Frontend -[#Gray]-> Users : Menampilkan form informasi kriteria
+
+' Users -> Frontend : Menekan tombol "Tambah Data"
+' Frontend -> "Kriteria Controler" : POST informasi terkait kriteria baru
+' "Kriteria Controler"-> Database : store(request)
+' "Kriteria Controler" <-[#Gray]- Database : return
+' "Kriteria Controler" -[#Gray]-> Frontend : return the response
+' Frontend -[#Gray]-> Users : Menampilkan notifikasi data\nberhasil ditambahkan
+
+Users -> Frontend : Menekan tombol "Ubah"
+Frontend -> "Kriteria Controler" : GET halaman mengubah kriteria
+"Kriteria Controler"-> Database : edit()
+"Kriteria Controler" <-[#Gray]- Database : return
+"Kriteria Controler" -[#Gray]-> Frontend : return the response
+Frontend -[#Gray]-> Users : Menampilkan form informasi kriteria
+
+Users -> Frontend : Menekan tombol "Ubah Data" pada halaman edit
+Frontend -> "Kriteria Controler" : PUT informasi baru terkait kriteria
+"Kriteria Controler"-> Database : update(request, id)
+"Kriteria Controler" <-[#Gray]- Database : return
+"Kriteria Controler" -[#Gray]-> Frontend : return the response
+Frontend -[#Gray]-> Users : Menampilkan notifikasi data\nberhasil diubah
+
+Users -> Frontend : Menekan tombol "Hapus"
+Frontend -> "Kriteria Controler" : DELETE kriteria yang dipilih
+"Kriteria Controler"-> Database : destroy(id)
+"Kriteria Controler" <-[#Gray]- Database : return
+"Kriteria Controler" -[#Gray]-> Frontend : return the response
+Frontend -[#Gray]-> Users : Menampilkan notifikasi data\nberhasil dihapus
+
+
+@enduml
+
+' @startuml Sequence Diagram All
+' actor Users
+' activate Kriteria
+' activate Subkriteria
+' activate Alternatif
+' activate "Nilai Kepentingan Kriteria"
+' activate "Nilai Alternatif"
+' activate "Hasil Perhitungan SAW"
+' activate "Hasil Perhitungan AHP"
+' activate "Hasil Perhitungan TOPSIS"
+
+' Users -> Kriteria : Menambahkan Kriteria
+' Kriteria -[#Gray]-> Users : Menampilkan seluruh Kriteria yang dipilih
+' deactivate Kriteria
+' Users -> Subkriteria : Menambahkan Subkriteria
+' Subkriteria -[#Gray]-> Users : Menampilkan seluruh\nSubkriteria yang dipilih
+' deactivate Subkriteria
+' Users -> Alternatif : Menambahkan Alternatif
+' Alternatif -[#Gray]-> Users : Menampilkan seluruh\nAlternatif yang dipilih
+' deactivate Alternatif
+' Users -> "Nilai Kepentingan Kriteria" : Menambahkan Nilai Kepentingan Kriteria
+' "Nilai Kepentingan Kriteria" -[#Gray]-> Users : Menampilkan seluruh\nNilai Kepentingan Kriteria yang dipilih
+' deactivate "Nilai Kepentingan Kriteria"
+' @enduml

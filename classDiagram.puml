@@ -1,0 +1,147 @@
+@startuml Kriteria
+class Kriteria {
+    __ protected __
+  {static} String table
+  {static} array fillable
+    __ function __
+  {abstract} void subkriteria()
+  {abstract} void nilaiBobot()
+}
+
+abstract KriteriaController {
+    __ function __
+  void index()
+  void create() 
+  void store($request)
+  void edit($id)
+  void update($request, $id)
+  void destroy($id)
+  void validator($request)
+}
+
+class Subkriteria {
+    __ protected __
+    {static} String table
+    {static} array fillable
+    __ function __
+  {abstract} void kriteria()
+}
+
+abstract SubkriteriaController {
+    __ function __
+  void index()
+  void create() 
+  void edit($kriteriaId)
+}
+
+class Alternatif {
+    __ protected __
+    {static} String table
+    {static} array fillable
+    __ function __
+  {abstract} void nilaiBobot()
+}
+
+abstract AlternatifController {
+    __ function __
+  void index()
+  void create() 
+  void store($request) 
+  void edit($id)
+  void update($request, $id)
+  void destroy($id)
+  void validator($request)
+}
+
+class NilaiBobot {
+    __ protected __
+    {static} String table
+    {static} array fillable
+    __ function __
+  {abstract} void kriteria()
+  {abstract} void alternatif()
+}
+
+abstract NilaiBobotController {
+    __ function __
+  void index()
+  void create_all() 
+  void store_all($request) 
+  void create_single($id)
+  void edit($alternatifId)
+  void update($request, $alternatifId)
+  void validator($request)
+  void process_index_data()
+}
+
+' ADD ON
+' abstract HasilAHPController {
+'     __ function __
+'   void index()
+'   void hasil() 
+'   void persentase_bobot() 
+'   void matrix_ternormalisasi($arrayNilaiBobotByAlternatifId = [])
+'   void min_max($arraySelectedNilaiBobot = [])
+'   void calculate_ranking()
+'   void sorting_vektor_v()
+'   void check_nilai_bobot_has_empty_data()
+' }
+
+' abstract HasilTOPSISController {
+'     __ function __
+'   void index()
+'   void hasil()
+'   void get_rank($array)
+'   void bobot_normal()
+'   void normal()
+'   void terbobot()
+'   void solusi_ideal()
+'   void jarak_solusi()
+'   void pref()
+' }
+
+' abstract HasilSAWController {
+'     __ function __
+'   void index()
+'   void hasil() 
+'   void persentase_bobot() 
+'   void matrix_ternormalisasi($arrayNilaiBobotByAlternatifId = [])
+'   void min_max($arraySelectedNilaiBobot = [])
+'   void calculate_ranking()
+'   void sorting_vektor_v()
+'   void check_nilai_bobot_has_empty_data()
+' }
+
+' abstract NilaiKepentinganKriteriaController {
+'     __ function __
+'   void index()
+'   void hasil_spk()
+' }
+
+' abstract NilaiKepentinganSubKriteriaController {
+'     __ function __
+'   void prosess_sub_spk()
+'   void hasil_sub_spk()
+' }
+
+
+
+
+Kriteria -[dashed]-> KriteriaController
+Kriteria --> Subkriteria
+Kriteria --> NilaiBobot
+Subkriteria -[dashed]-> SubkriteriaController
+Subkriteria --> Kriteria
+Alternatif -[dashed]-> AlternatifController
+Alternatif --> NilaiBobot
+NilaiBobot -[dashed]-> NilaiBobotController
+NilaiBobot --> Kriteria
+NilaiBobot --> Alternatif
+
+' NilaiKepentinganKriteriaController --> Kriteria
+' NilaiKepentinganSubKriteriaController --> Subkriteria
+' HasilSAWController --> NilaiBobot
+' HasilSAWController --> Alternatif
+' HasilSAWController --> Kriteria
+
+@enduml

@@ -39,10 +39,10 @@
                       <div class="col-10">
                         <div class="row">
                           <div class="form-group col-12 col-md-6">
-                            <label for="range">Range</label>
+                            <label for="range">Nama Sub-Kriteria</label>
                             <input type="text"
                               class="form-control @error('formData.' . $index . '.range') is-invalid @enderror"
-                              name="range" placeholder="Persentase Range"
+                              name="range" placeholder="Nama Sub-Kriteria"
                               wire:model="formData.{{ $index }}.range"
                               wire:key="formCounter.{{ $index }}.range" required>
                             @error('formData.' . $index . '.range')
